@@ -15,7 +15,7 @@ function osmEmbedUrl() {
 export function Location() {
   const { language, t } = useLanguage()
   const mapUrl = osmEmbedUrl()
-  const image = property.gallery[4]
+  const image = property.gallery[3]
 
   return (
     <section className="location section" id="location">

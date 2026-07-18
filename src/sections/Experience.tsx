@@ -5,7 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext'
 
 export function Experience() {
   const { language, t } = useLanguage()
-  const image = property.gallery[5]
+  const image = property.gallery[0]
 
   return (
     <section className="experience section">

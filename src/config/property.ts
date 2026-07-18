@@ -9,8 +9,7 @@ import { assetPath } from '../utils/assets'
  * - Los campos vacíos no se muestran en la interfaz.
  * - Las coordenadas publicadas apuntan al centro de Lixouri, no a la puerta
  *   del alojamiento. Añade `exactCoordinates` solo si deseas mostrar el pin.
- * - Las imágenes actuales son editoriales provisionales generadas para el
- *   diseño. Sustituye los archivos manteniendo los nombres o edita `gallery`.
+ * - Las imágenes de la galería son fotografías oficiales del alojamiento.
  */
 export const property: PropertyConfig = {
   name: 'Meraki Home',
@@ -77,28 +76,20 @@ export const property: PropertyConfig = {
   ],
   gallery: [
     {
-      id: 'hero', src: assetPath('images/meraki-hero.webp'), width: 1536, height: 1024, provisional: true, focalPoint: '55% 50%',
-      alt: { el: 'Πρωινό φως πάνω από το Ιόνιο από μια πέτρινη βεράντα — προσωρινή εικόνα', en: 'Morning light over the Ionian Sea from a stone terrace — provisional image', es: 'Luz de mañana sobre el mar Jónico desde una terraza de piedra — imagen provisional', it: 'Luce del mattino sullo Ionio da una terrazza in pietra — immagine provvisoria' },
+      id: 'hero', src: assetPath('images/meraki-living.webp'), width: 1360, height: 907, provisional: false, focalPoint: '58% 50%',
+      alt: { el: 'Φωτεινό σαλόνι του Meraki Home', en: 'Bright living room at Meraki Home', es: 'Salón luminoso de Meraki Home', it: 'Luminoso soggiorno di Meraki Home' },
     },
     {
-      id: 'living', src: assetPath('images/meraki-living.webp'), width: 1024, height: 1536, provisional: true, focalPoint: '50% 50%',
-      alt: { el: 'Φωτεινό μεσογειακό καθιστικό σε φυσικούς τόνους — προσωρινή εικόνα', en: 'Light Mediterranean living room in natural tones — provisional image', es: 'Salón mediterráneo luminoso en tonos naturales — imagen provisional', it: 'Soggiorno mediterraneo luminoso dai toni naturali — immagine provvisoria' },
+      id: 'bedroom', src: assetPath('images/meraki-bedroom.webp'), width: 1360, height: 907, provisional: false,
+      alt: { el: 'Υπνοδωμάτιο του Meraki Home', en: 'Bedroom at Meraki Home', es: 'Dormitorio de Meraki Home', it: 'Camera da letto di Meraki Home' },
     },
     {
-      id: 'breakfast', src: assetPath('images/meraki-breakfast.webp'), width: 1536, height: 1024, provisional: true,
-      alt: { el: 'Ήσυχο ελληνικό πρωινό σε ξύλινο τραπέζι — προσωρινή εικόνα', en: 'A quiet Greek breakfast on a wooden table — provisional image', es: 'Un desayuno griego tranquilo sobre una mesa de madera — imagen provisional', it: 'Una tranquilla colazione greca su un tavolo di legno — immagine provvisoria' },
+      id: 'bathroom', src: assetPath('images/meraki-bathroom.webp'), width: 1360, height: 907, provisional: false,
+      alt: { el: 'Μπάνιο του Meraki Home', en: 'Bathroom at Meraki Home', es: 'Baño de Meraki Home', it: 'Bagno di Meraki Home' },
     },
     {
-      id: 'bedroom', src: assetPath('images/meraki-bedroom.webp'), width: 1536, height: 1024, provisional: true,
-      alt: { el: 'Ήρεμο υπνοδωμάτιο με λευκά λινά — προσωρινή εικόνα', en: 'Serene bedroom with white linen — provisional image', es: 'Dormitorio sereno con ropa de cama blanca — imagen provisional', it: 'Camera serena con biancheria bianca — immagine provvisoria' },
-    },
-    {
-      id: 'door', src: assetPath('images/meraki-door.webp'), width: 1024, height: 1536, provisional: true,
-      alt: { el: 'Ασβεστωμένη είσοδος με ελιά στο Ληξούρι — προσωρινή εικόνα', en: 'Whitewashed entrance with an olive tree in Lixouri — provisional image', es: 'Entrada encalada con un olivo en Lixouri — imagen provisional', it: 'Ingresso imbiancato con ulivo a Lixouri — immagine provvisoria' },
-    },
-    {
-      id: 'coast', src: assetPath('images/meraki-coast.webp'), width: 1536, height: 1024, provisional: true,
-      alt: { el: 'Βραχώδης ακτή της Κεφαλονιάς στο απογευματινό φως — προσωρινή εικόνα', en: 'Kefalonia’s rocky coast in the afternoon light — provisional image', es: 'Costa rocosa de Cefalonia a la luz de la tarde — imagen provisional', it: 'Costa rocciosa di Cefalonia nella luce del pomeriggio — immagine provvisoria' },
+      id: 'exterior', src: assetPath('images/meraki-exterior.webp'), width: 1360, height: 907, provisional: false,
+      alt: { el: 'Η εξωτερική είσοδος του Meraki Home', en: 'The exterior entrance of Meraki Home', es: 'La entrada exterior de Meraki Home', it: 'L’ingresso esterno di Meraki Home' },
     },
   ],
   bookingChannels: [
@@ -129,7 +120,7 @@ export const property: PropertyConfig = {
   policies: { cancellation: null, pets: null, children: null },
   seo: {
     publicUrl: import.meta.env.VITE_PUBLIC_SITE_URL ?? '',
-    socialImage: assetPath('images/meraki-hero.webp'),
+    socialImage: assetPath('images/meraki-living.webp'),
     title: { el: 'Meraki Home · Διαμονή στο Ληξούρι, Κεφαλονιά', en: 'Meraki Home · Stay in Lixouri, Kefalonia', es: 'Meraki Home · Alojamiento en Lixouri, Cefalonia', it: 'Meraki Home · Soggiorno a Lixouri, Cefalonia' },
     description: { el: 'Φωτεινή κατοικία 41 τ.μ. κοντά στο κέντρο και το λιμάνι του Ληξουρίου. Ανακαλύψτε το Meraki Home στην Κεφαλονιά.', en: 'A bright 41 m² home close to Lixouri centre and port. Discover Meraki Home in Kefalonia.', es: 'Una vivienda luminosa de 41 m² cerca del centro y del puerto de Lixouri. Descubre Meraki Home en Cefalonia.', it: 'Una luminosa casa di 41 m² vicino al centro e al porto di Lixouri. Scoprite Meraki Home a Cefalonia.' },
   },

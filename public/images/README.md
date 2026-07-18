@@ -6,12 +6,10 @@ Las imágenes actuales son **recursos editoriales provisionales generados con IA
 
 | Archivo | Uso | Proporción recomendada | Contenido real recomendado |
 | --- | --- | --- | --- |
-| `meraki-hero.webp` | Hero y social | 3:2 horizontal, 2400 px de ancho | Mejor imagen general del alojamiento o su entorno real |
-| `meraki-living.webp` | Introducción y galería | 2:3 vertical, 1600 × 2400 px | Salón real, encuadre vertical |
-| `meraki-breakfast.webp` | Introducción y galería | 3:2 horizontal | Cocina/comedor real o detalle de hospitalidad |
-| `meraki-bedroom.webp` | Galería | 3:2 horizontal | Dormitorio completo y bien iluminado |
-| `meraki-door.webp` | Ubicación y galería | 2:3 vertical | Entrada real sin mostrar datos sensibles |
-| `meraki-coast.webp` | Experiencia y galería | 3:2 horizontal | Paisaje real de Kefalonia con derechos de uso |
+| `meraki-living.webp` | Hero, social y galería | 3:2 horizontal | Salón real del alojamiento |
+| `meraki-bedroom.webp` | Galería | 3:2 horizontal | Dormitorio real |
+| `meraki-bathroom.webp` | Galería | 3:2 horizontal | Baño real |
+| `meraki-exterior.webp` | Ubicación y galería | 3:2 horizontal | Entrada exterior real |
 
 ## Sustitución segura
 
@@ -22,4 +20,4 @@ Las imágenes actuales son **recursos editoriales provisionales generados con IA
 5. Cambia `provisional: true` a `false` en cada imagen real.
 6. Conserva los originales fuera de `public/` y verifica que tienes autorización para publicarlos.
 
-Las fuentes PNG provisionales se conservan en `source-images/` y no se incluyen en el build. No se incorporaron fotografías de Booking.com ni de terceros.
+Las fotografías oficiales se incorporan con autorización del propietario y se sirven desde este directorio durante el build.
