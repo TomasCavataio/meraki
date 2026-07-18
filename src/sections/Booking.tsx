@@ -21,6 +21,10 @@ const directCopy = {
   it: { tab: 'Prenota direttamente', submit: 'Invia richiesta', people: 'Numero di persone', children: 'Bambini', pet: 'Animale domestico', email: 'Email', phone: 'Telefono cellulare', comments: 'Commenti o informazioni aggiuntive', yes: 'Sì', no: 'No', sent: 'La richiesta è stata inviata.' },
 } as const
 
+const countryCodes = [
+  ['Afghanistan', '+93'], ['Albania', '+355'], ['Algeria', '+213'], ['Argentina', '+54'], ['Australia', '+61'], ['Austria', '+43'], ['Belgium', '+32'], ['Brazil', '+55'], ['Bulgaria', '+359'], ['Canada', '+1'], ['Chile', '+56'], ['China', '+86'], ['Croatia', '+385'], ['Cyprus', '+357'], ['Czechia', '+420'], ['Denmark', '+45'], ['Egypt', '+20'], ['Estonia', '+372'], ['Finland', '+358'], ['France', '+33'], ['Germany', '+49'], ['Greece', '+30'], ['Hungary', '+36'], ['India', '+91'], ['Ireland', '+353'], ['Israel', '+972'], ['Italy', '+39'], ['Japan', '+81'], ['Latvia', '+371'], ['Lithuania', '+370'], ['Luxembourg', '+352'], ['Malta', '+356'], ['Mexico', '+52'], ['Morocco', '+212'], ['Netherlands', '+31'], ['New Zealand', '+64'], ['Norway', '+47'], ['Poland', '+48'], ['Portugal', '+351'], ['Romania', '+40'], ['Serbia', '+381'], ['Singapore', '+65'], ['Slovakia', '+421'], ['Slovenia', '+386'], ['South Africa', '+27'], ['South Korea', '+82'], ['Spain', '+34'], ['Sweden', '+46'], ['Switzerland', '+41'], ['Turkey', '+90'], ['Ukraine', '+380'], ['United Arab Emirates', '+971'], ['United Kingdom', '+44'], ['United States', '+1'],
+] as const
+
 export function Booking() {
   const { language, t } = useLanguage()
   const copy = directCopy[language]
@@ -67,13 +71,13 @@ export function Booking() {
               <input type="hidden" name="_subject" value="Nueva solicitud de reserva · Meraki Home" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
-              <div className="direct-form__field"><label htmlFor="direct-guests">{copy.people}</label><input id="direct-guests" name="Número de personas" type="number" min="1" max="3" defaultValue="2" required /></div>
+              <div className="direct-form__field"><label htmlFor="direct-guests">{copy.people}</label><select id="direct-guests" name="Número de personas" defaultValue="2" required><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
               <div className="direct-form__field"><label htmlFor="direct-arrival">{t.booking.arrival} <CalendarDays size={16} aria-hidden="true" /></label><input id="direct-arrival" name="Check in" type="date" min={today} required /></div>
               <div className="direct-form__field"><label htmlFor="direct-departure">{t.booking.departure} <CalendarDays size={16} aria-hidden="true" /></label><input id="direct-departure" name="Check out" type="date" min={today} required /></div>
               <div className="direct-form__field"><label htmlFor="direct-children">{copy.children}</label><select id="direct-children" name="Hijos" defaultValue="0"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
               <div className="direct-form__field"><label htmlFor="direct-pet">{copy.pet}</label><select id="direct-pet" name="Mascota" defaultValue="no"><option value="no">{copy.no}</option><option value="yes">{copy.yes}</option></select></div>
               <div className="direct-form__field"><label htmlFor="direct-email">{copy.email}</label><input id="direct-email" name="Email" type="email" autoComplete="email" required /></div>
-              <div className="direct-form__field"><label htmlFor="direct-phone">{copy.phone}</label><div className="phone-field"><select name="Prefijo" aria-label="Country code" defaultValue="+30"><option value="+30">GR +30</option><option value="+34">ES +34</option><option value="+39">IT +39</option><option value="+44">UK +44</option><option value="+49">DE +49</option><option value="+33">FR +33</option><option value="+1">US/CA +1</option><option value="other">Other</option></select><input id="direct-phone" name="Teléfono" type="tel" autoComplete="tel" placeholder="691 234 5678" required /></div></div>
+              <div className="direct-form__field"><label htmlFor="direct-phone">{copy.phone}</label><div className="phone-field"><select name="Prefijo" aria-label="Country code" defaultValue="+30">{countryCodes.map(([country, code]) => <option key={`${country}-${code}`} value={code}>{country} {code}</option>)}</select><input id="direct-phone" name="Teléfono" type="tel" autoComplete="tel" placeholder="691 234 5678" required /></div></div>
               <div className="direct-form__field direct-form__field--wide"><label htmlFor="direct-comments">{copy.comments}</label><textarea id="direct-comments" name="Comentarios" rows={3} /></div>
               <button className="button button--sand direct-form__submit" type="submit">{copy.submit}<ArrowUpRight size={18} aria-hidden="true" /></button>
             </form>

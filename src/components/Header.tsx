@@ -2,7 +2,6 @@ import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { languages } from '../config/types'
 import { property } from '../config/property'
-import { assetPath } from '../utils/assets'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const navItems = [
@@ -53,7 +52,11 @@ export function Header() {
     <>
       <header className={`site-header${isScrolled || menuOpen ? ' site-header--solid' : ''}`}>
         <a className="brand" href="#top" aria-label={`${property.name} — ${t.actions.backToTop}`} onClick={closeMenu}>
-          <img className="brand__logo" src={assetPath('meraki-logo.png')} alt={property.name} />
+          <span className="brand__mark" aria-hidden="true">M</span>
+          <span className="brand__text">
+            <strong>{property.name}</strong>
+            <small>Lixouri · Kefalonia</small>
+          </span>
         </a>
 
         <nav className="desktop-nav" aria-label={t.footer.navigate}>

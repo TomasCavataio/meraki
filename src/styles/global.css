@@ -98,7 +98,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .page-shell { width: var(--shell); margin-inline: auto; }
 
-.section { padding-block: var(--section-space); }
+.section { padding-block: 4rem; }
 
 .eyebrow {
   display: flex;
@@ -343,7 +343,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .fact strong { grid-column: 2; font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
 
 /* Gallery */
-.gallery-section { padding-top: calc(var(--section-space) * 0.8); background: var(--paper); }
+.gallery-section { padding-top: 4rem; background: var(--paper); }
 .gallery-section__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; }
 .gallery-section__head > p { display: flex; align-items: center; gap: 0.55rem; padding-bottom: 0.5rem; color: var(--ink-soft); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .gallery-grid { display: grid; grid-template-columns: 1.22fr 0.78fr 0.78fr; grid-auto-rows: 220px; gap: 1rem; margin-top: 4rem; }
@@ -593,7 +593,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   :root { --shell: calc(100vw - 32px); --section-space: 5.5rem; }
   .section-heading h2 { font-size: clamp(2.75rem, 14vw, 4.2rem); }
   .section-heading__intro { font-size: 0.95rem; }
-  .brand__logo { width: 104px; }
   .brand__mark { width: 2rem; height: 2rem; }
   .language-select { min-width: 2.7rem; }
   .language-select__value { padding-inline: 0.45rem; }
