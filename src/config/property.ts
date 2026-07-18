@@ -97,6 +97,38 @@ export const property: PropertyConfig = {
       alt: { el: 'Η εξωτερική είσοδος του Meraki Home', en: 'The exterior entrance of Meraki Home', es: 'La entrada exterior de Meraki Home', it: 'L’ingresso esterno di Meraki Home' },
     },
     {
+      id: 'living-wide', src: assetPath('images/meraki-living-wide.jpg'), width: 2400, height: 1600, provisional: false,
+      alt: { el: 'Ευρύχωρο σαλόνι του Meraki Home', en: 'Spacious living room at Meraki Home', es: 'Salón amplio de Meraki Home', it: 'Ampio soggiorno di Meraki Home' },
+    },
+    {
+      id: 'kitchen-wide', src: assetPath('images/meraki-kitchen-wide.jpg'), width: 2400, height: 1599, provisional: false,
+      alt: { el: 'Η κουζίνα του Meraki Home', en: 'The kitchen at Meraki Home', es: 'La cocina de Meraki Home', it: 'La cucina di Meraki Home' },
+    },
+    {
+      id: 'living-sofa', src: assetPath('images/meraki-living-sofa.jpg'), width: 2400, height: 1600, provisional: false,
+      alt: { el: 'Καθιστικό με φυτά και φυσικό φως', en: 'Living room with plants and natural light', es: 'Salón con plantas y luz natural', it: 'Soggiorno con piante e luce naturale' },
+    },
+    {
+      id: 'dining', src: assetPath('images/meraki-dining.jpg'), width: 1599, height: 2400, provisional: false,
+      alt: { el: 'Τραπεζαρία και κουζίνα', en: 'Dining area and kitchen', es: 'Comedor y cocina', it: 'Zona pranzo e cucina' },
+    },
+    {
+      id: 'details', src: assetPath('images/meraki-details.jpg'), width: 1599, height: 2400, provisional: false,
+      alt: { el: 'Λεπτομέρεια διακόσμησης με ορχιδέα', en: 'Decorative detail with an orchid', es: 'Detalle decorativo con orquídea', it: 'Dettaglio decorativo con orchidea' },
+    },
+    {
+      id: 'oven', src: assetPath('images/meraki-oven.jpg'), width: 2400, height: 1600, provisional: false,
+      alt: { el: 'Ο φούρνος της κουζίνας', en: 'The kitchen oven', es: 'El horno de la cocina', it: 'Il forno della cucina' },
+    },
+    {
+      id: 'coffee-machine', src: assetPath('images/meraki-coffee-machine.jpg'), width: 2400, height: 1600, provisional: false,
+      alt: { el: 'Καφετιέρα Nespresso', en: 'Nespresso coffee machine', es: 'Cafetera Nespresso', it: 'Macchina da caffè Nespresso' },
+    },
+    {
+      id: 'coffee-station', src: assetPath('images/meraki-coffee-station.jpg'), width: 2400, height: 1600, provisional: false,
+      alt: { el: 'Γωνιά καφέ στην κουζίνα', en: 'Coffee corner in the kitchen', es: 'Rincón del café en la cocina', it: 'Angolo caffè in cucina' },
+    },
+    {
       id: 'coast-cliffs', src: assetPath('images/meraki-coast-cliffs.jpg'), width: 2043, height: 3047, provisional: false,
       alt: { el: 'Απόκρημνη ακτή της Κεφαλονιάς', en: 'Kefalonia’s rugged coastline', es: 'Costa escarpada de Cefalonia', it: 'Costa selvaggia di Cefalonia' },
     },
