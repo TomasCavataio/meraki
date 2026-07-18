@@ -31,11 +31,10 @@ export function Location() {
             ) : (
               <div className="location__map-fallback"><LocateFixed aria-hidden="true" /><p>{property.location.publicName[language]}</p></div>
             )}
-            <div className="location__map-label"><LocateFixed size={16} aria-hidden="true" /><span>{t.location.approximate}</span></div>
+            <div className="location__map-label"><LocateFixed size={16} aria-hidden="true" /><span>{property.location.privateAddress}</span></div>
           </div>
           <figure className="location__photo image-frame" data-reveal>
             {image ? <img src={image.src} alt={image.alt[language]} width={image.width} height={image.height} loading="lazy" decoding="async" /> : null}
-            <figcaption>{property.verification.imageryNote[language]}</figcaption>
           </figure>
           <article className="location__arrival" data-reveal>
             <Route size={24} strokeWidth={1.4} aria-hidden="true" />

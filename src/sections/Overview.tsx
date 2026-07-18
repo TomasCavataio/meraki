@@ -8,6 +8,7 @@ const factIcons = {
   guests: BedDouble,
   bedrooms: BedDouble,
   beds: BedDouble,
+  sofa: BedDouble,
   bathrooms: Bath,
   area: Expand,
   parking: Car,
@@ -37,7 +38,6 @@ export function Overview() {
           </div>
           <figure className="overview__portrait image-frame" data-reveal>
             <img src={property.gallery[1]?.src} alt={property.gallery[1]?.alt[language]} width={property.gallery[1]?.width} height={property.gallery[1]?.height} loading="lazy" decoding="async" />
-            <figcaption>{property.verification.imageryNote[language]}</figcaption>
           </figure>
           <figure className="overview__detail image-frame" data-reveal>
             <img src={property.gallery[2]?.src} alt={property.gallery[2]?.alt[language]} width={property.gallery[2]?.width} height={property.gallery[2]?.height} loading="lazy" decoding="async" />

@@ -1,6 +1,6 @@
 # Fotografías del sitio
 
-Las imágenes actuales son **recursos editoriales provisionales generados con IA** para poder evaluar el diseño. No representan el interior ni el exterior real de Meraki Home y la interfaz lo indica de forma visible.
+Las imágenes son fotografías reales del alojamiento.
 
 ## Archivos que debe reemplazar el propietario
 
@@ -17,7 +17,7 @@ Las imágenes actuales son **recursos editoriales provisionales generados con IA
 2. Conserva los mismos nombres para no tocar código, o actualiza `src/config/property.ts`.
 3. Mantén las dimensiones indicadas en `width` y `height` del archivo de configuración para evitar saltos de layout.
 4. Actualiza los textos `alt` en los cuatro idiomas.
-5. Cambia `provisional: true` a `false` en cada imagen real.
+5. Mantén `provisional: false` para las fotografías oficiales.
 6. Conserva los originales fuera de `public/` y verifica que tienes autorización para publicarlos.
 
 Las fotografías oficiales se incorporan con autorización del propietario y se sirven desde este directorio durante el build.

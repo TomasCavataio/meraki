@@ -4,7 +4,7 @@ export type Language = (typeof languages)[number]
 export type LocalizedText = Record<Language, string>
 
 export interface PropertyFact {
-  id: 'guests' | 'bedrooms' | 'beds' | 'bathrooms' | 'area' | 'parking' | 'views' | 'airConditioning'
+  id: 'guests' | 'bedrooms' | 'beds' | 'sofa' | 'bathrooms' | 'area' | 'parking' | 'views' | 'airConditioning'
   value?: number | string | boolean
 }
 
@@ -108,6 +108,5 @@ export interface PropertyConfig {
   verification: {
     checkedAt: string
     sources: string[]
-    imageryNote: LocalizedText
   }
 }

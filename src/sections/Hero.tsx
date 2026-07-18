@@ -29,7 +29,6 @@ export function Hero() {
           <a className="button button--ghost" href="#home">{t.actions.discoverHome}</a>
         </div>
       </div>
-      <p className="hero__provisional">{property.verification.imageryNote[language]}</p>
       <a className="hero__scroll" href="#home"><span>{t.hero.scroll}</span><ArrowDown size={18} aria-hidden="true" /></a>
     </section>
   )

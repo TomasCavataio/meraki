@@ -20,7 +20,7 @@ export const property: PropertyConfig = {
       es: 'Lixouri, Cefalonia, Grecia',
       it: 'Lixouri, Cefalonia, Grecia',
     },
-    privateAddress: '',
+    privateAddress: 'Xenofontos 4, Lixouri 282 00',
     mapsUrl: 'https://share.google/gn6Xjx0TjQQBwEcQm',
     publicCoordinates: { latitude: 38.19795, longitude: 20.4373 },
   },
@@ -53,7 +53,8 @@ export const property: PropertyConfig = {
   facts: [
     { id: 'guests' },
     { id: 'bedrooms', value: 1 },
-    { id: 'beds', value: 2 },
+    { id: 'beds', value: 1 },
+    { id: 'sofa', value: 1 },
     { id: 'bathrooms', value: 1 },
     { id: 'area', value: 41 },
     { id: 'parking', value: true },
@@ -69,9 +70,12 @@ export const property: PropertyConfig = {
     { id: 'washer', category: 'home', icon: 'washer', enabled: true, label: { el: 'Πλυντήριο ρούχων', en: 'Washing machine', es: 'Lavadora', it: 'Lavatrice' } },
     { id: 'parking', category: 'access', icon: 'parking', enabled: true, label: { el: 'Δωρεάν χώρος στάθμευσης', en: 'Free on-site parking', es: 'Aparcamiento gratuito', it: 'Parcheggio gratuito' } },
     { id: 'family', category: 'home', icon: 'family', enabled: true, label: { el: 'Κατάλληλο για οικογένειες', en: 'Family friendly', es: 'Apto para familias', it: 'Adatto alle famiglie' } },
-    { id: 'pets', category: 'home', icon: 'pets', enabled: true, label: { el: 'Κατοικίδια κατόπιν συνεννόησης', en: 'Pets by arrangement', es: 'Mascotas bajo consulta', it: 'Animali su richiesta' } },
+    { id: 'pets', category: 'home', icon: 'pets', enabled: true, label: { el: 'Φιλικό προς κατοικίδια', en: 'Pet friendly', es: 'Apto para mascotas', it: 'Pet friendly' } },
     { id: 'nonSmoking', category: 'comfort', icon: 'smokeFree', enabled: true, label: { el: 'Χώρος μη καπνιστών', en: 'Non-smoking home', es: 'Alojamiento sin humo', it: 'Casa non fumatori' } },
-    { id: 'tv', category: 'comfort', icon: 'tv', enabled: false, label: { el: 'Τηλεόραση', en: 'Television', es: 'Televisión', it: 'Televisione' } },
+    { id: 'tv', category: 'comfort', icon: 'tv', enabled: true, label: { el: 'Smart TV', en: 'Smart TV', es: 'Smart TV', it: 'Smart TV' } },
+    { id: 'coffeeOven', category: 'kitchen', icon: 'cooking', enabled: true, label: { el: 'Καφετιέρα και φούρνος', en: 'Coffee maker and oven', es: 'Cafetera y horno', it: 'Macchina da caffè e forno' } },
+    { id: 'iron', category: 'home', icon: 'washer', enabled: true, label: { el: 'Σίδερο', en: 'Iron', es: 'Plancha', it: 'Ferro da stiro' } },
+    { id: 'dryer', category: 'home', icon: 'washer', enabled: true, label: { el: 'Στεγνωτήριο και πιστολάκι μαλλιών', en: 'Tumble dryer and hair dryer', es: 'Secadora y secador de pelo', it: 'Asciugatrice e asciugacapelli' } },
     { id: 'shuttle', category: 'access', icon: 'shuttle', enabled: true, label: { el: 'Μεταφορά αεροδρομίου με χρέωση', en: 'Paid airport transfer', es: 'Traslado de aeropuerto de pago', it: 'Transfer aeroportuale a pagamento' } },
   ],
   gallery: [
@@ -111,7 +115,7 @@ export const property: PropertyConfig = {
   faqs: [
     { id: 'times', question: { el: 'Ποιες είναι οι ώρες άφιξης και αναχώρησης;', en: 'What are the check-in and check-out times?', es: '¿Cuáles son los horarios de entrada y salida?', it: 'Quali sono gli orari di check-in e check-out?' }, answer: { el: 'Η άφιξη είναι από τις 15:00 και η αναχώρηση έως τις 11:00. Επιβεβαιώστε τις λεπτομέρειες με τον οικοδεσπότη πριν από το ταξίδι.', en: 'Check-in is from 15:00 and check-out is by 11:00. Please confirm the details with the host before travelling.', es: 'La entrada es a partir de las 15:00 y la salida hasta las 11:00. Confirma los detalles con el anfitrión antes de viajar.', it: 'Il check-in è dalle 15:00 e il check-out entro le 11:00. Confermate i dettagli con l’host prima del viaggio.' } },
     { id: 'parking', question: { el: 'Υπάρχει χώρος στάθμευσης;', en: 'Is parking available?', es: '¿Hay aparcamiento?', it: 'È disponibile il parcheggio?' }, answer: { el: 'Ναι. Η δημόσια καταχώριση αναφέρει δωρεάν χώρο στάθμευσης στο κατάλυμα.', en: 'Yes. The public listing states that free on-site parking is available.', es: 'Sí. La ficha pública indica que hay aparcamiento gratuito en el alojamiento.', it: 'Sì. La scheda pubblica indica la disponibilità di parcheggio gratuito in loco.' } },
-    { id: 'pets', question: { el: 'Επιτρέπονται τα κατοικίδια;', en: 'Are pets allowed?', es: '¿Se admiten mascotas?', it: 'Gli animali sono ammessi?' }, answer: { el: 'Η δημόσια καταχώριση αναφέρει ότι τα κατοικίδια επιτρέπονται. Επικοινωνήστε πριν από την κράτηση για τυχόν όρους.', en: 'The public listing states that pets are allowed. Please check any conditions before booking.', es: 'La ficha pública indica que se admiten mascotas. Consulta las condiciones antes de reservar.', it: 'La scheda pubblica indica che gli animali sono ammessi. Verificate eventuali condizioni prima di prenotare.' } },
+    { id: 'pets', question: { el: 'Επιτρέπονται τα κατοικίδια;', en: 'Are pets allowed?', es: '¿Se admiten mascotas?', it: 'Gli animali sono ammessi?' }, answer: { el: 'Φυσικά, αγαπάμε τους τριχωτούς φίλους.', en: 'Absolutely, we love hairy friends.', es: 'Por supuesto, nos encantan los amigos peludos.', it: 'Certamente, amiamo gli amici pelosi.' } },
     { id: 'transport', question: { el: 'Πώς φτάνω από το αεροδρόμιο;', en: 'How do I arrive from the airport?', es: '¿Cómo se llega desde el aeropuerto?', it: 'Come si arriva dall’aeroporto?' }, answer: { el: 'Το αεροδρόμιο Κεφαλονιάς αναφέρεται σε απόσταση 15 χλμ. και διατίθεται μεταφορά με επιπλέον χρέωση κατόπιν συνεννόησης.', en: 'Kefalonia Airport is listed 15 km away, and a paid transfer can be arranged.', es: 'El aeropuerto de Cefalonia figura a 15 km y se puede organizar un traslado de pago.', it: 'L’aeroporto di Cefalonia è indicato a 15 km ed è possibile organizzare un transfer a pagamento.' } },
   ],
   reviews: [],
@@ -127,6 +131,5 @@ export const property: PropertyConfig = {
   verification: {
     checkedAt: '2026-07-17',
     sources: ['https://share.google/gn6Xjx0TjQQBwEcQm', 'https://www.booking.com/hotel/gr/meraki-home.en-gb.html'],
-    imageryNote: { el: 'Οι εικόνες είναι προσωρινές και θα αντικατασταθούν από τις επίσημες φωτογραφίες του καταλύματος.', en: 'Images are provisional and will be replaced with official property photography.', es: 'Las imágenes son provisionales y se sustituirán por fotografías oficiales del alojamiento.', it: 'Le immagini sono provvisorie e saranno sostituite dalle fotografie ufficiali della struttura.' },
   },
 }
