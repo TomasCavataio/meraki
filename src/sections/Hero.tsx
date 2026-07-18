@@ -1,20 +1,22 @@
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import { property } from '../config/property'
+import { assetPath } from '../utils/assets'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export function Hero() {
   const { language, t } = useLanguage()
   const hero = property.gallery[0]
   if (!hero) return null
+  const heroSrc = assetPath('images/meraki-hero.jpg')
 
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
       <img
         className="hero__image"
-        src={hero.src}
+        src={heroSrc}
         alt={hero.alt[language]}
-        width={hero.width}
-        height={hero.height}
+        width={4032}
+        height={3024}
         fetchPriority="high"
         decoding="async"
         style={{ objectPosition: hero.focalPoint }}
