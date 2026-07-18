@@ -45,9 +45,9 @@ export const property: PropertyConfig = {
     },
     longDescription: {
       el: 'Το Meraki Home είναι μια φωτεινή κατοικία 41 τ.μ. με ένα υπνοδωμάτιο, καθιστικό και εξοπλισμένη κουζίνα. Βρίσκεται σε μικρή απόσταση από το κέντρο και το λιμάνι του Ληξουρίου· μια πρακτική, ζεστή αφετηρία για ζευγάρια, μικρές οικογένειες ή μοναχικούς ταξιδιώτες που θέλουν να γνωρίσουν την Παλική χωρίς βιασύνη.',
-      en: 'Meraki Home is a bright 41 m² residence with one bedroom, a living room and an equipped kitchen. Close to Lixouri centre and port, it is a practical, warm base for couples, small families or solo travellers who want to discover Paliki without rushing.',
-      es: 'Meraki Home es una vivienda luminosa de 41 m² con un dormitorio, sala de estar y cocina equipada. Cerca del centro y del puerto de Lixouri, es una base práctica y acogedora para parejas, familias pequeñas o viajeros solos que quieran descubrir Paliki sin prisas.',
-      it: 'Meraki Home è una casa luminosa di 41 m² con una camera, soggiorno e cucina attrezzata. Vicina al centro e al porto di Lixouri, è una base pratica e accogliente per coppie, piccole famiglie o viaggiatori solitari che desiderano scoprire Paliki con calma.',
+      en: 'Meraki Home is a bright 41 m² residence with one bedroom, a living room and an equipped kitchen. Close to Lixouri centre and port, it is a practical, warm base for couples, small families or solo travellers who want to discover the island without rushing.',
+      es: 'Meraki Home es una vivienda luminosa de 41 m² con un dormitorio, sala de estar y cocina equipada. Cerca del centro y del puerto de Lixouri, es una base práctica y acogedora para parejas, familias pequeñas o viajeros solos que quieran descubrir la isla sin prisas.',
+      it: 'Meraki Home è una casa luminosa di 41 m² con una camera, soggiorno e cucina attrezzata. Vicina al centro e al porto di Lixouri, è una base pratica e accogliente per coppie, piccole famiglie o viaggiatori solitari che desiderano scoprire l’isola con calma.',
     },
   },
   facts: [
@@ -75,7 +75,7 @@ export const property: PropertyConfig = {
     { id: 'tv', category: 'comfort', icon: 'tv', enabled: true, label: { el: 'Smart TV', en: 'Smart TV', es: 'Smart TV', it: 'Smart TV' } },
     { id: 'coffee', category: 'kitchen', icon: 'coffee', enabled: true, label: { el: 'Καφετιέρα', en: 'Coffee maker', es: 'Cafetera', it: 'Macchina da caffè' } },
     { id: 'oven', category: 'kitchen', icon: 'cooking', enabled: true, label: { el: 'Φούρνος', en: 'Oven', es: 'Horno', it: 'Forno' } },
-    { id: 'iron', category: 'home', icon: 'iron', enabled: true, label: { el: 'Ισιωτική μαλλιών', en: 'Hair straightener', es: 'Plancha de pelo', it: 'Piastra per capelli' } },
+    { id: 'iron', category: 'home', icon: 'iron', enabled: true, label: { el: 'Σίδερο ρούχων', en: 'Clothes iron', es: 'Plancha de ropa', it: 'Ferro da stiro' } },
     { id: 'hairDryer', category: 'home', icon: 'hairDryer', enabled: true, label: { el: 'Πιστολάκι μαλλιών', en: 'Hair dryer', es: 'Secadora de pelo', it: 'Asciugacapelli' } },
     { id: 'shuttle', category: 'access', icon: 'shuttle', enabled: true, label: { el: 'Μεταφορά αεροδρομίου με χρέωση', en: 'Paid airport transfer', es: 'Traslado de aeropuerto de pago', it: 'Transfer aeroportuale a pagamento' } },
   ],
