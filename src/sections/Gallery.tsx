@@ -19,7 +19,7 @@ export function Gallery() {
           <p data-reveal><Images size={17} aria-hidden="true" />{t.gallery.imageCount}</p>
         </div>
         <div className="gallery-grid">
-          {property.gallery.slice(0, 5).map((image, index) => (
+          {property.gallery.map((image, index) => (
             <button className={`gallery-grid__item gallery-grid__item--${index + 1}`} type="button" key={image.id} onClick={() => setActiveIndex(index)} aria-label={`${t.accessibility.currentImage} ${index + 1}: ${image.alt[language]}`} data-reveal>
               <img src={image.src} alt="" width={image.width} height={image.height} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" style={{ objectPosition: image.focalPoint }} />
               <span className="gallery-grid__number">0{index + 1}</span>
