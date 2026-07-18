@@ -97,6 +97,14 @@ export const property: PropertyConfig = {
       alt: { el: 'Η εξωτερική είσοδος του Meraki Home', en: 'The exterior entrance of Meraki Home', es: 'La entrada exterior de Meraki Home', it: 'L’ingresso esterno di Meraki Home' },
     },
     {
+      id: 'main-wide', src: assetPath('images/meraki-main-wide.jpg'), width: 2400, height: 1600, provisional: false,
+      alt: { el: 'Φωτεινό σαλόνι και κουζίνα του Meraki Home', en: 'Bright living room and kitchen at Meraki Home', es: 'Salón y cocina luminosos de Meraki Home', it: 'Luminoso soggiorno e cucina di Meraki Home' },
+    },
+    {
+      id: 'bathroom-shower', src: assetPath('images/meraki-bathroom-shower.jpg'), width: 1599, height: 2400, provisional: false,
+      alt: { el: 'Μπάνιο με ντους του Meraki Home', en: 'Bathroom with shower at Meraki Home', es: 'Baño con ducha de Meraki Home', it: 'Bagno con doccia di Meraki Home' },
+    },
+    {
       id: 'living-wide', src: assetPath('images/meraki-living-wide.jpg'), width: 2400, height: 1600, provisional: false,
       alt: { el: 'Ευρύχωρο σαλόνι του Meraki Home', en: 'Spacious living room at Meraki Home', es: 'Salón amplio de Meraki Home', it: 'Ampio soggiorno di Meraki Home' },
     },
@@ -107,10 +115,6 @@ export const property: PropertyConfig = {
     {
       id: 'living-sofa', src: assetPath('images/meraki-living-sofa.jpg'), width: 2400, height: 1600, provisional: false,
       alt: { el: 'Καθιστικό με φυτά και φυσικό φως', en: 'Living room with plants and natural light', es: 'Salón con plantas y luz natural', it: 'Soggiorno con piante e luce naturale' },
-    },
-    {
-      id: 'dining', src: assetPath('images/meraki-dining.jpg'), width: 1599, height: 2400, provisional: false,
-      alt: { el: 'Τραπεζαρία και κουζίνα', en: 'Dining area and kitchen', es: 'Comedor y cocina', it: 'Zona pranzo e cucina' },
     },
     {
       id: 'details', src: assetPath('images/meraki-details.jpg'), width: 1599, height: 2400, provisional: false,
@@ -125,20 +129,8 @@ export const property: PropertyConfig = {
       alt: { el: 'Καφετιέρα Nespresso', en: 'Nespresso coffee machine', es: 'Cafetera Nespresso', it: 'Macchina da caffè Nespresso' },
     },
     {
-      id: 'coffee-station', src: assetPath('images/meraki-coffee-station.jpg'), width: 2400, height: 1600, provisional: false,
-      alt: { el: 'Γωνιά καφέ στην κουζίνα', en: 'Coffee corner in the kitchen', es: 'Rincón del café en la cocina', it: 'Angolo caffè in cucina' },
-    },
-    {
       id: 'coast-cliffs', src: assetPath('images/meraki-coast-cliffs.jpg'), width: 2043, height: 3047, provisional: false,
       alt: { el: 'Απόκρημνη ακτή της Κεφαλονιάς', en: 'Kefalonia’s rugged coastline', es: 'Costa escarpada de Cefalonia', it: 'Costa selvaggia di Cefalonia' },
-    },
-    {
-      id: 'coast-aerial', src: assetPath('images/meraki-coast-aerial.jpg'), width: 4000, height: 2250, provisional: false,
-      alt: { el: 'Αεροφωτογραφία της ακτής της Κεφαλονιάς', en: 'Aerial view of Kefalonia’s coast', es: 'Vista aérea de la costa de Cefalonia', it: 'Vista aerea della costa di Cefalonia' },
-    },
-    {
-      id: 'coast-beach', src: assetPath('images/meraki-coast-beach.jpg'), width: 4000, height: 6000, provisional: false,
-      alt: { el: 'Παραλία με γαλαζοπράσινα νερά στην Κεφαλονιά', en: 'A turquoise beach in Kefalonia', es: 'Playa de aguas turquesas en Cefalonia', it: 'Spiaggia dalle acque turchesi a Cefalonia' },
     },
   ],
   bookingChannels: [

@@ -7,7 +7,7 @@ export function Hero() {
   const { language, t } = useLanguage()
   const hero = property.gallery[0]
   if (!hero) return null
-  const heroSrc = assetPath('images/meraki-coast-aerial.jpg')
+  const heroSrc = assetPath('images/meraki-main-wide.jpg')
 
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
@@ -15,8 +15,8 @@ export function Hero() {
         className="hero__image"
         src={heroSrc}
         alt={hero.alt[language]}
-        width={4032}
-        height={3024}
+        width={2400}
+        height={1600}
         fetchPriority="high"
         decoding="async"
         style={{ objectPosition: hero.focalPoint }}
