@@ -96,6 +96,18 @@ export const property: PropertyConfig = {
       id: 'exterior', src: assetPath('images/meraki-exterior.webp'), width: 1360, height: 907, provisional: false,
       alt: { el: 'Η εξωτερική είσοδος του Meraki Home', en: 'The exterior entrance of Meraki Home', es: 'La entrada exterior de Meraki Home', it: 'L’ingresso esterno di Meraki Home' },
     },
+    {
+      id: 'coast-cliffs', src: assetPath('images/meraki-coast-cliffs.jpg'), width: 2043, height: 3047, provisional: false,
+      alt: { el: 'Απόκρημνη ακτή της Κεφαλονιάς', en: 'Kefalonia’s rugged coastline', es: 'Costa escarpada de Cefalonia', it: 'Costa selvaggia di Cefalonia' },
+    },
+    {
+      id: 'coast-aerial', src: assetPath('images/meraki-coast-aerial.jpg'), width: 4000, height: 2250, provisional: false,
+      alt: { el: 'Αεροφωτογραφία της ακτής της Κεφαλονιάς', en: 'Aerial view of Kefalonia’s coast', es: 'Vista aérea de la costa de Cefalonia', it: 'Vista aerea della costa di Cefalonia' },
+    },
+    {
+      id: 'coast-beach', src: assetPath('images/meraki-coast-beach.jpg'), width: 4000, height: 6000, provisional: false,
+      alt: { el: 'Παραλία με γαλαζοπράσινα νερά στην Κεφαλονιά', en: 'A turquoise beach in Kefalonia', es: 'Playa de aguas turquesas en Cefalonia', it: 'Spiaggia dalle acque turchesi a Cefalonia' },
+    },
   ],
   bookingChannels: [
     { id: 'booking', label: 'Booking.com', value: 'https://www.booking.com/hotel/gr/meraki-home.en-gb.html', primary: true },

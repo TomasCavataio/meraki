@@ -3,18 +3,13 @@ import { SectionHeading } from '../components/SectionHeading'
 import { property } from '../config/property'
 import { useLanguage } from '../i18n/LanguageContext'
 
-function osmEmbedUrl() {
-  const coordinates = property.location.publicCoordinates
-  if (!coordinates) return ''
-  const { latitude, longitude } = coordinates
-  const delta = 0.018
-  const bbox = `${longitude - delta},${latitude - delta},${longitude + delta},${latitude + delta}`
-  return `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik&marker=${latitude},${longitude}`
+function mapEmbedUrl() {
+  return `https://www.google.com/maps?q=${encodeURIComponent(property.location.privateAddress)}&output=embed`
 }
 
 export function Location() {
   const { language, t } = useLanguage()
-  const mapUrl = osmEmbedUrl()
+  const mapUrl = mapEmbedUrl()
   const image = property.gallery[3]
 
   return (
