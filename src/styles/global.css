@@ -14,8 +14,8 @@
   --white: #fffdf9;
   --line: rgba(24, 48, 57, 0.16);
   --line-light: rgba(255, 253, 249, 0.22);
-  --serif: 'Newsreader', Georgia, serif;
-  --sans: 'Manrope', system-ui, sans-serif;
+  --serif: Georgia, serif;
+  --sans: system-ui, sans-serif;
   --shell: min(1380px, calc(100vw - 96px));
   --section-space: clamp(6.5rem, 11vw, 11rem);
   color: var(--ink);
@@ -655,6 +655,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   .booking__layout,
   .faq__layout { gap: 3.5rem; }
   .booking-form { grid-template-columns: 1fr; }
+  .direct-form { grid-template-columns: 1fr; }
+  .direct-form__field,
+  .direct-form__field--wide,
+  .direct-form__submit { grid-column: 1; }
+  .phone-field { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+  .phone-field select,
+  .phone-field input { min-width: 0; }
   .booking-form__field,
   .booking-form__field:nth-child(3),
   .booking-form__submit,
