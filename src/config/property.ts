@@ -73,9 +73,10 @@ export const property: PropertyConfig = {
     { id: 'pets', category: 'home', icon: 'pets', enabled: true, label: { el: 'Φιλικό προς κατοικίδια', en: 'Pet friendly', es: 'Apto para mascotas', it: 'Pet friendly' } },
     { id: 'nonSmoking', category: 'comfort', icon: 'smokeFree', enabled: true, label: { el: 'Χώρος μη καπνιστών', en: 'Non-smoking home', es: 'Alojamiento sin humo', it: 'Casa non fumatori' } },
     { id: 'tv', category: 'comfort', icon: 'tv', enabled: true, label: { el: 'Smart TV', en: 'Smart TV', es: 'Smart TV', it: 'Smart TV' } },
-    { id: 'coffeeOven', category: 'kitchen', icon: 'cooking', enabled: true, label: { el: 'Καφετιέρα και φούρνος', en: 'Coffee maker and oven', es: 'Cafetera y horno', it: 'Macchina da caffè e forno' } },
-    { id: 'iron', category: 'home', icon: 'washer', enabled: true, label: { el: 'Σίδερο', en: 'Iron', es: 'Plancha', it: 'Ferro da stiro' } },
-    { id: 'dryer', category: 'home', icon: 'washer', enabled: true, label: { el: 'Στεγνωτήριο και πιστολάκι μαλλιών', en: 'Tumble dryer and hair dryer', es: 'Secadora y secador de pelo', it: 'Asciugatrice e asciugacapelli' } },
+    { id: 'coffee', category: 'kitchen', icon: 'coffee', enabled: true, label: { el: 'Καφετιέρα', en: 'Coffee maker', es: 'Cafetera', it: 'Macchina da caffè' } },
+    { id: 'oven', category: 'kitchen', icon: 'cooking', enabled: true, label: { el: 'Φούρνος', en: 'Oven', es: 'Horno', it: 'Forno' } },
+    { id: 'iron', category: 'home', icon: 'iron', enabled: true, label: { el: 'Ισιωτική μαλλιών', en: 'Hair straightener', es: 'Plancha de pelo', it: 'Piastra per capelli' } },
+    { id: 'hairDryer', category: 'home', icon: 'hairDryer', enabled: true, label: { el: 'Πιστολάκι μαλλιών', en: 'Hair dryer', es: 'Secadora de pelo', it: 'Asciugacapelli' } },
     { id: 'shuttle', category: 'access', icon: 'shuttle', enabled: true, label: { el: 'Μεταφορά αεροδρομίου με χρέωση', en: 'Paid airport transfer', es: 'Traslado de aeropuerto de pago', it: 'Transfer aeroportuale a pagamento' } },
   ],
   gallery: [
