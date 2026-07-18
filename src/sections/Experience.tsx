@@ -1,18 +1,12 @@
 import { ArrowDownRight } from 'lucide-react'
 import { SectionHeading } from '../components/SectionHeading'
-import { property } from '../config/property'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export function Experience() {
-  const { language, t } = useLanguage()
-  const image = property.gallery[0]
+  const { t } = useLanguage()
 
   return (
     <section className="experience section">
-      <div className="experience__image" data-reveal>
-        {image ? <img src={image.src} alt={image.alt[language]} width={image.width} height={image.height} loading="lazy" decoding="async" /> : null}
-        <p>{property.location.publicName[language]}</p>
-      </div>
       <div className="experience__content page-shell">
         <SectionHeading eyebrow={t.experience.kicker} title={t.experience.title} intro={t.experience.lead} />
         <div className="experience__moments">

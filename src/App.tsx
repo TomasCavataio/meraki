@@ -14,7 +14,6 @@ import { Gallery } from './sections/Gallery'
 import { Hero } from './sections/Hero'
 import { Location } from './sections/Location'
 import { Overview } from './sections/Overview'
-import { Trust } from './sections/Trust'
 
 export default function App() {
   const { language, t } = useLanguage()
@@ -31,11 +30,10 @@ export default function App() {
         <Hero />
         <Overview />
         <Gallery />
-        <Experience />
         <Amenities />
         <Location />
         <Explore />
-        <Trust />
+        <Experience />
         <Booking />
         <Faq />
       </main>
