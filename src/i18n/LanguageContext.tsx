@@ -27,8 +27,7 @@ function getInitialLanguage(): Language {
     // Storage may be disabled; language selection still works for the session.
   }
 
-  const browserLanguage = window.navigator.language.toLowerCase().split('-')[0] ?? ''
-  return isLanguage(browserLanguage) ? browserLanguage : 'el'
+  return 'el'
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
