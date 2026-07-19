@@ -3,6 +3,7 @@ import { property } from '../config/property'
 import type { PropertyFact } from '../config/types'
 import { useLanguage } from '../i18n/LanguageContext'
 import { SectionHeading } from '../components/SectionHeading'
+import { assetPath } from '../utils/assets'
 
 const factIcons = {
   guests: BedDouble,
@@ -40,7 +41,19 @@ export function Overview() {
             <img src={property.gallery[1]?.src} alt={property.gallery[1]?.alt[language]} width={property.gallery[1]?.width} height={property.gallery[1]?.height} loading="lazy" decoding="async" />
           </figure>
           <figure className="overview__detail image-frame" data-reveal>
-            <img src={property.gallery[2]?.src} alt={property.gallery[2]?.alt[language]} width={property.gallery[2]?.width} height={property.gallery[2]?.height} loading="lazy" decoding="async" />
+            <img
+              src={assetPath('images/meraki-bathroom-detail.jpg')}
+              alt={{
+                el: 'Λεπτομέρεια του μπάνιου του Meraki Home',
+                en: 'Bathroom detail at Meraki Home',
+                es: 'Detalle del baño de Meraki Home',
+                it: 'Dettaglio del bagno di Meraki Home',
+              }[language]}
+              width={7008}
+              height={4672}
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
         </div>
 
