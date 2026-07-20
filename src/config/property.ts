@@ -21,7 +21,7 @@ export const property: PropertyConfig = {
       it: 'Lixouri, Cefalonia, Grecia',
     },
     privateAddress: 'Xenofontos 4, Lixouri 282 00',
-    mapsUrl: 'https://share.google/gn6Xjx0TjQQBwEcQm',
+    mapsUrl: 'https://maps.app.goo.gl/SBBpyXz6spdpxfnE7?g_st=ic',
     publicCoordinates: { latitude: 38.19795, longitude: 20.4373 },
   },
   content: {
