@@ -30,12 +30,7 @@ export interface Translation {
   facts: Record<'guests' | 'bedrooms' | 'beds' | 'sofa' | 'bathrooms' | 'area' | 'parking' | 'views' | 'airConditioning', string>
   factValues: { yes: string; gardenCity: string; squareMetres: string }
   gallery: { kicker: string; title: string; imageCount: string; dialogLabel: string; provisional: string }
-  experience: {
-    kicker: string
-    title: string
-    lead: string
-    moments: Array<{ title: string; text: string }>
-  }
+  stayDetails: { kicker: string }
   amenities: { kicker: string; title: string; intro: string; categories: Record<'comfort' | 'kitchen' | 'home' | 'access', string> }
   location: { kicker: string; title: string; text: string; mapTitle: string; approximate: string; arrivalTitle: string; arrivalText: string }
   explore: { kicker: string; title: string; intro: string; verified: string }
@@ -70,7 +65,7 @@ export const translations: Record<Language, Translation> = {
     facts: { guests: 'Επισκέπτες', bedrooms: 'Υπνοδωμάτιο', beds: 'Κρεβάτι', sofa: 'Καναπές', bathrooms: 'Μπάνιο', area: 'Επιφάνεια', parking: 'Στάθμευση', views: 'Θέα', airConditioning: 'Κλιματισμός' },
     factValues: { yes: 'Ναι', gardenCity: 'Πόλη & κήπος', squareMetres: 'τ.μ.' },
     gallery: { kicker: 'Μια πρώτη αίσθηση', title: 'Φως, υφή και οικεία απλότητα', imageCount: '13 εικόνες', dialogLabel: 'Προβολή φωτογραφιών', provisional: 'Προσωρινή εικόνα' },
-    experience: { kicker: 'Ημέρες χωρίς βιασύνη', title: 'Ο ρυθμός του Ιονίου', lead: 'Η Κεφαλονιά ανταμείβει την περιέργεια, αλλά και την παύση. Από το πρωινό στο Ληξούρι ως το τελευταίο φως στη δυτική ακτή, κάθε μέρα μπορεί να μείνει απλή.', moments: [{ title: 'Αργά πρωινά', text: 'Καφές, κάτι τοπικό στο τραπέζι και χρόνος για το σχέδιο της ημέρας.' }, { title: 'Θάλασσα & διαδρομές', text: 'Μικρές αποστάσεις προς τις ακτές της Παλικής και δρόμοι που αξίζει να πάρεις χωρίς πρόγραμμα.' }, { title: 'Βραδιές στο Ληξούρι', text: 'Μια βόλτα στην πλατεία, τοπικές γεύσεις και η επιστροφή σε έναν ήσυχο χώρο.' }] },
+    stayDetails: { kicker: 'Χρήσιμες πληροφορίες διαμονής' },
     amenities: { kicker: 'Οι παροχές μας', title: '', intro: '', categories: { comfort: 'Άνεση', kitchen: 'Κουζίνα', home: 'Στο σπίτι', access: 'Πρόσβαση' } },
     location: { kicker: 'Η βάση σας στην Παλική', title: 'Ληξούρι, στη δυτική πλευρά της Κεφαλονιάς', text: 'Το Meraki Home βρίσκεται κοντά στο κέντρο και το λιμάνι του Ληξουρίου, με εύκολη πρόσβαση σε καθημερινές ανάγκες και στις ακτές της χερσονήσου.', mapTitle: 'Χάρτης της ευρύτερης περιοχής του Ληξουρίου', approximate: 'Εμφανίζεται κατά προσέγγιση η περιοχή, όχι η ακριβής είσοδος.', arrivalTitle: 'Πώς θα φτάσετε', arrivalText: 'Από το αεροδρόμιο ακολουθήστε τη διαδρομή προς Ληξούρι ή περάστε μέσω Αργοστολίου και του τοπικού ferry. Επιβεβαιώστε τις επιλογές και τα ωράρια πριν από το ταξίδι.' },
     explore: { kicker: 'Γύρω από το σπίτι', title: 'Μια χερσόνησος για εξερεύνηση', intro: 'Παραλίες, μικρές διαδρομές και το καθημερινό Ληξούρι. Οι αποστάσεις παρακάτω έχουν διασταυρωθεί από τη δημόσια καταχώριση.', verified: 'Επαληθευμένη απόσταση' },
@@ -91,7 +86,7 @@ export const translations: Record<Language, Translation> = {
     facts: { guests: 'Guests', bedrooms: 'Bedroom', beds: 'Bed', sofa: 'Sofa', bathrooms: 'Bathroom', area: 'Area', parking: 'Parking', views: 'Views', airConditioning: 'Air conditioning' },
     factValues: { yes: 'Yes', gardenCity: 'Town & garden', squareMetres: 'm²' },
     gallery: { kicker: 'A first impression', title: 'Light, texture and familiar simplicity', imageCount: '13 images', dialogLabel: 'Photo viewer', provisional: 'Provisional image' },
-    experience: { kicker: 'Days without hurry', title: 'The rhythm of the Ionian', lead: 'Kefalonia rewards curiosity, but also the pause. From breakfast in Lixouri to the last light on the west coast, every day can remain beautifully simple.', moments: [{ title: 'Slow mornings', text: 'Coffee, something local on the table and time to make a loose plan for the day.' }, { title: 'Sea & small roads', text: 'Short journeys towards Paliki’s coastline, along roads worth taking without a schedule.' }, { title: 'Evenings in Lixouri', text: 'A walk through the square, local flavours, then back to a quiet space of your own.' }] },
+    stayDetails: { kicker: 'Useful stay details' },
     amenities: { kicker: 'Our amenities', title: '', intro: '', categories: { comfort: 'Comfort', kitchen: 'Kitchen', home: 'At home', access: 'Access' } },
     location: { kicker: 'Your Paliki base', title: 'Lixouri, on Kefalonia’s western side', text: 'Meraki Home is close to Lixouri centre and port, with convenient access to daily essentials and the peninsula’s coast.', mapTitle: 'Map of Meraki Home', approximate: 'Xenofontos 4, Lixouri 282 00', arrivalTitle: 'Getting here', arrivalText: 'From the airport, follow the road towards Lixouri or travel via Argostoli and the local ferry. Check routes and timetables before travelling.' },
     explore: { kicker: 'Around the home', title: 'A peninsula made for exploring', intro: 'Beaches, short road trips and everyday Lixouri. The distances below have been checked against the public property listing.', verified: 'Verified distance' },
@@ -112,7 +107,7 @@ export const translations: Record<Language, Translation> = {
     facts: { guests: 'Huéspedes', bedrooms: 'Dormitorio', beds: 'Cama', sofa: 'Sofá', bathrooms: 'Baño', area: 'Superficie', parking: 'Aparcamiento', views: 'Vistas', airConditioning: 'Climatización' },
     factValues: { yes: 'Sí', gardenCity: 'Ciudad y jardín', squareMetres: 'm²' },
     gallery: { kicker: 'Una primera impresión', title: 'Luz, textura y una sencillez familiar', imageCount: '13 imágenes', dialogLabel: 'Visor de fotografías', provisional: 'Imagen provisional' },
-    experience: { kicker: 'Días sin prisa', title: 'El ritmo del Jónico', lead: 'Cefalonia recompensa la curiosidad, pero también la pausa. Desde el desayuno en Lixouri hasta la última luz de la costa oeste, cada día puede seguir siendo sencillo.', moments: [{ title: 'Mañanas lentas', text: 'Café, algo local sobre la mesa y tiempo para dibujar el plan del día.' }, { title: 'Mar y carreteras', text: 'Trayectos cortos hacia la costa de Paliki y caminos que merece la pena recorrer sin horarios.' }, { title: 'Noches en Lixouri', text: 'Un paseo por la plaza, sabores locales y la vuelta a un espacio tranquilo.' }] },
+    stayDetails: { kicker: 'Datos útiles para tu estancia' },
     amenities: { kicker: 'Nuestras comodidades', title: '', intro: '', categories: { comfort: 'Confort', kitchen: 'Cocina', home: 'En casa', access: 'Acceso' } },
     location: { kicker: 'Tu base en Paliki', title: 'Lixouri, en el oeste de Cefalonia', text: 'Meraki Home está cerca del centro y del puerto de Lixouri, con acceso cómodo a lo cotidiano y a la costa de la península.', mapTitle: 'Mapa de Meraki Home', approximate: 'Xenofontos 4, Lixouri 282 00', arrivalTitle: 'Cómo llegar', arrivalText: 'Desde el aeropuerto, sigue la carretera hacia Lixouri o pasa por Argostoli y el ferry local. Comprueba rutas y horarios antes de viajar.' },
     explore: { kicker: 'Alrededor de la casa', title: 'Una península para explorar', intro: 'Playas, pequeñas rutas y el día a día de Lixouri. Las distancias se han contrastado con la ficha pública.', verified: 'Distancia verificada' },
@@ -133,7 +128,7 @@ export const translations: Record<Language, Translation> = {
     facts: { guests: 'Ospiti', bedrooms: 'Camera', beds: 'Letto', sofa: 'Divano', bathrooms: 'Bagno', area: 'Superficie', parking: 'Parcheggio', views: 'Vista', airConditioning: 'Climatizzazione' },
     factValues: { yes: 'Sì', gardenCity: 'Città e giardino', squareMetres: 'm²' },
     gallery: { kicker: 'Una prima impressione', title: 'Luce, materia e una semplicità familiare', imageCount: '13 immagini', dialogLabel: 'Visualizzatore foto', provisional: 'Immagine provvisoria' },
-    experience: { kicker: 'Giornate senza fretta', title: 'Il ritmo dello Ionio', lead: 'Cefalonia premia la curiosità, ma anche la pausa. Dalla colazione a Lixouri all’ultima luce sulla costa occidentale, ogni giornata può restare meravigliosamente semplice.', moments: [{ title: 'Mattine lente', text: 'Caffè, qualcosa di locale sul tavolo e il tempo per abbozzare il programma.' }, { title: 'Mare e piccole strade', text: 'Brevi tragitti verso la costa di Paliki, lungo strade da percorrere senza orari.' }, { title: 'Sere a Lixouri', text: 'Una passeggiata in piazza, sapori locali e il ritorno in uno spazio tranquillo.' }] },
+    stayDetails: { kicker: 'Informazioni utili sul soggiorno' },
     amenities: { kicker: 'I nostri servizi', title: '', intro: '', categories: { comfort: 'Comfort', kitchen: 'Cucina', home: 'A casa', access: 'Accesso' } },
     location: { kicker: 'La vostra base a Paliki', title: 'Lixouri, sul versante occidentale di Cefalonia', text: 'Meraki Home è vicino al centro e al porto di Lixouri, con accesso comodo ai servizi quotidiani e alla costa della penisola.', mapTitle: 'Mappa di Meraki Home', approximate: 'Xenofontos 4, Lixouri 282 00', arrivalTitle: 'Come arrivare', arrivalText: 'Dall’aeroporto, seguite la strada per Lixouri oppure passate da Argostoli con il traghetto locale. Verificate itinerari e orari prima del viaggio.' },
     explore: { kicker: 'Intorno alla casa', title: 'Una penisola da esplorare', intro: 'Spiagge, brevi itinerari e la vita quotidiana di Lixouri. Le distanze sono state verificate sulla scheda pubblica.', verified: 'Distanza verificata' },

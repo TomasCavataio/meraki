@@ -6,7 +6,6 @@ import { useSeo } from './hooks/useSeo'
 import { useLanguage } from './i18n/LanguageContext'
 import { Amenities } from './sections/Amenities'
 import { Booking } from './sections/Booking'
-import { Experience } from './sections/Experience'
 import { Explore } from './sections/Explore'
 import { Faq } from './sections/Faq'
 import { Footer } from './sections/Footer'
@@ -14,6 +13,7 @@ import { Gallery } from './sections/Gallery'
 import { Hero } from './sections/Hero'
 import { Location } from './sections/Location'
 import { Overview } from './sections/Overview'
+import { StayDetails } from './sections/StayDetails'
 
 export default function App() {
   const { language, t } = useLanguage()
@@ -33,7 +33,7 @@ export default function App() {
         <Amenities />
         <Location />
         <Explore />
-        <Experience />
+        <StayDetails />
         <Booking />
         <Faq />
       </main>
