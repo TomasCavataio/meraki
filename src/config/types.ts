@@ -55,6 +55,7 @@ export interface NearbyPlace {
   title: LocalizedText
   description: LocalizedText
   distance: LocalizedText
+  mapsUrl: string
   type: 'town' | 'port' | 'beach' | 'culture' | 'airport'
 }
 

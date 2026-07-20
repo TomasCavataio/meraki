@@ -22,7 +22,10 @@ export function Explore() {
                 <Icon size={22} strokeWidth={1.3} aria-hidden="true" />
                 <div><h3>{place.title[language]}</h3><p>{place.description[language]}</p></div>
                 <p className="explore__distance"><small>{t.explore.verified}</small>{place.distance[language]}</p>
-                <ArrowUpRight size={18} strokeWidth={1.4} aria-hidden="true" />
+                <a className="explore__link" href={place.mapsUrl} target="_blank" rel="noreferrer">
+                  <ArrowUpRight size={18} strokeWidth={1.4} aria-hidden="true" />
+                  <span className="sr-only">{t.actions.openMaps}: {place.title[language]}. {t.accessibility.opensNewWindow}</span>
+                </a>
               </article>
             )
           })}
