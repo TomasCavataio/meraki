@@ -140,7 +140,7 @@ El repositorio de GitHub necesita estos secretos en `Settings → Secrets and va
 - `CLOUDFLARE_ACCOUNT_ID`: ID de la cuenta que contiene la zona `merakihome.gr`;
 - `CLOUDFLARE_API_TOKEN`: token limitado a esa cuenta y zona, con permiso para editar Workers.
 
-El dominio raíz está declarado como Custom Domain. Cuando la zona esté activa en Cloudflare, el primer deploy creará el registro DNS y el certificado TLS necesarios para `merakihome.gr`.
+El dominio raíz y `www` están declarados como Custom Domains. Cloudflare crea y mantiene automáticamente los registros DNS y certificados TLS necesarios para `merakihome.gr` y `www.merakihome.gr`. La URL canónica de la web es `https://merakihome.gr`.
 
 Para validar el paquete sin publicar:
 

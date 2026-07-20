@@ -12,6 +12,10 @@
     {
       "pattern": "merakihome.gr",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.merakihome.gr",
+      "custom_domain": true
     }
   ]
 }
