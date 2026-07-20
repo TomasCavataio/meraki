@@ -1,5 +1,5 @@
 import { Expand, Images } from 'lucide-react'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Lightbox } from '../components/Lightbox'
 import { SectionHeading } from '../components/SectionHeading'
 import { property } from '../config/property'
@@ -8,8 +8,24 @@ import { useLanguage } from '../i18n/LanguageContext'
 export function Gallery() {
   const { language, t } = useLanguage()
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [loadImages, setLoadImages] = useState(false)
+  const gridRef = useRef<HTMLDivElement>(null)
   const close = useCallback(() => setActiveIndex(null), [])
   const change = useCallback((index: number) => setActiveIndex(index), [])
+
+  useEffect(() => {
+    const grid = gridRef.current
+    if (!grid) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return
+      setLoadImages(true)
+      observer.disconnect()
+    }, { rootMargin: '600px 0px' })
+
+    observer.observe(grid)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section className="gallery-section section" id="gallery">
@@ -18,10 +34,10 @@ export function Gallery() {
           <SectionHeading eyebrow={t.gallery.kicker} title={t.gallery.title} />
           <p data-reveal><Images size={17} aria-hidden="true" />{t.gallery.imageCount}</p>
         </div>
-        <div className="gallery-grid">
+        <div className="gallery-grid" ref={gridRef}>
           {property.gallery.slice(0, 7).map((image, index) => (
             <button className={`gallery-grid__item gallery-grid__item--${index + 1}`} type="button" key={image.id} onClick={() => setActiveIndex(index)} aria-label={`${t.accessibility.currentImage} ${index + 1}: ${image.alt[language]}`} data-reveal>
-              <img src={image.src} alt="" width={image.width} height={image.height} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" style={{ objectPosition: image.focalPoint }} />
+              <img src={loadImages ? image.src : undefined} alt="" width={image.width} height={image.height} loading="lazy" fetchPriority={index === 0 ? 'high' : 'low'} decoding="async" style={{ objectPosition: image.focalPoint }} />
               <span className="gallery-grid__number">0{index + 1}</span>
               {image.provisional ? <small>{t.gallery.provisional}</small> : null}
               <Expand className="gallery-grid__expand" size={20} aria-hidden="true" />

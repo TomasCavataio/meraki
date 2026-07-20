@@ -56,7 +56,7 @@ export function Lightbox({ images, activeIndex, language, t, onChange, onClose }
         <button ref={closeButtonRef} type="button" onClick={onClose} aria-label={t.actions.close}><X aria-hidden="true" /></button>
       </div>
       <figure>
-        <img src={current.src} alt={current.alt[language]} width={current.width} height={current.height} />
+        <img src={current.src} alt={current.alt[language]} width={current.width} height={current.height} fetchPriority="high" decoding="async" />
         <figcaption>
           <span>{current.alt[language].replace(/\s[—–-]\s.*$/, '')}</span>
           {current.provisional ? <small>{t.gallery.provisional}</small> : null}

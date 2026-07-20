@@ -29,7 +29,7 @@ export function Location() {
             <div className="location__map-label"><LocateFixed size={16} aria-hidden="true" /><span>{property.location.privateAddress}</span></div>
           </div>
           <figure className="location__photo image-frame" data-reveal>
-            {image ? <img src={image.src} alt={image.alt[language]} width={image.width} height={image.height} loading="lazy" decoding="async" /> : null}
+            {image ? <img src={image.src} alt={image.alt[language]} width={image.width} height={image.height} loading="lazy" fetchPriority="low" decoding="async" /> : null}
           </figure>
           <article className="location__arrival" data-reveal>
             <Route size={24} strokeWidth={1.4} aria-hidden="true" />

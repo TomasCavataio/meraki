@@ -7,16 +7,24 @@ export function Hero() {
   const { language, t } = useLanguage()
   const hero = property.gallery[0]
   if (!hero) return null
-  const heroSrc = assetPath('images/meraki-main-wide.jpg')
+  const heroSrc = assetPath('images/meraki-main-wide-1600.webp')
+  const heroSrcSet = [
+    `${assetPath('images/meraki-main-wide-960.webp')} 960w`,
+    `${heroSrc} 1600w`,
+    `${assetPath('images/meraki-main-wide-2400.webp')} 2400w`,
+  ].join(', ')
 
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
       <img
         className="hero__image"
         src={heroSrc}
+        srcSet={heroSrcSet}
+        sizes="100vw"
         alt={hero.alt[language]}
-        width={2400}
-        height={1600}
+        width={1600}
+        height={1067}
+        loading="eager"
         fetchPriority="high"
         decoding="async"
         style={{ objectPosition: hero.focalPoint }}

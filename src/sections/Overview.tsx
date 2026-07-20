@@ -38,20 +38,21 @@ export function Overview() {
             <p className="source-note">{property.content.eyebrow[language]}</p>
           </div>
           <figure className="overview__portrait image-frame" data-reveal>
-            <img src={property.gallery[1]?.src} alt={property.gallery[1]?.alt[language]} width={property.gallery[1]?.width} height={property.gallery[1]?.height} loading="lazy" decoding="async" />
+            <img src={property.gallery[1]?.src} alt={property.gallery[1]?.alt[language]} width={property.gallery[1]?.width} height={property.gallery[1]?.height} loading="lazy" fetchPriority="low" decoding="async" />
           </figure>
           <figure className="overview__detail image-frame" data-reveal>
             <img
-              src={assetPath('images/meraki-bathroom-detail.jpg')}
+              src={assetPath('images/meraki-bathroom-detail.webp')}
               alt={{
                 el: 'Λεπτομέρεια του μπάνιου του Meraki Home',
                 en: 'Bathroom detail at Meraki Home',
                 es: 'Detalle del baño de Meraki Home',
                 it: 'Dettaglio del bagno di Meraki Home',
               }[language]}
-              width={7008}
-              height={4672}
+              width={1200}
+              height={800}
               loading="lazy"
+              fetchPriority="low"
               decoding="async"
             />
           </figure>

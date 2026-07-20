@@ -97,39 +97,39 @@ export const property: PropertyConfig = {
       alt: { el: 'Η εξωτερική είσοδος του Meraki Home', en: 'The exterior entrance of Meraki Home', es: 'La entrada exterior de Meraki Home', it: 'L’ingresso esterno di Meraki Home' },
     },
     {
-      id: 'main-wide', src: assetPath('images/meraki-main-wide.jpg'), width: 2400, height: 1600, provisional: false,
+      id: 'main-wide', src: assetPath('images/meraki-main-wide-2400.webp'), width: 2400, height: 1600, provisional: false,
       alt: { el: 'Φωτεινό σαλόνι και κουζίνα του Meraki Home', en: 'Bright living room and kitchen at Meraki Home', es: 'Salón y cocina luminosos de Meraki Home', it: 'Luminoso soggiorno e cucina di Meraki Home' },
     },
     {
-      id: 'bathroom-shower', src: assetPath('images/meraki-bathroom-shower.jpg'), width: 1599, height: 2400, provisional: false,
+      id: 'bathroom-shower', src: assetPath('images/meraki-bathroom-shower.webp'), width: 1600, height: 2400, provisional: false,
       alt: { el: 'Μπάνιο με ντους του Meraki Home', en: 'Bathroom with shower at Meraki Home', es: 'Baño con ducha de Meraki Home', it: 'Bagno con doccia di Meraki Home' },
     },
     {
-      id: 'living-wide', src: assetPath('images/meraki-living-wide.jpg'), width: 2400, height: 1600, provisional: false,
+      id: 'living-wide', src: assetPath('images/meraki-living-wide.webp'), width: 1600, height: 1067, provisional: false,
       alt: { el: 'Ευρύχωρο σαλόνι του Meraki Home', en: 'Spacious living room at Meraki Home', es: 'Salón amplio de Meraki Home', it: 'Ampio soggiorno di Meraki Home' },
     },
     {
-      id: 'kitchen-wide', src: assetPath('images/meraki-kitchen-wide.jpg'), width: 2400, height: 1599, provisional: false,
+      id: 'kitchen-wide', src: assetPath('images/meraki-kitchen-wide.webp'), width: 1600, height: 1066, provisional: false,
       alt: { el: 'Η κουζίνα του Meraki Home', en: 'The kitchen at Meraki Home', es: 'La cocina de Meraki Home', it: 'La cucina di Meraki Home' },
     },
     {
-      id: 'living-sofa', src: assetPath('images/meraki-living-sofa.jpg'), width: 2400, height: 1600, provisional: false,
+      id: 'living-sofa', src: assetPath('images/meraki-living-sofa.webp'), width: 1600, height: 1067, provisional: false,
       alt: { el: 'Καθιστικό με φυτά και φυσικό φως', en: 'Living room with plants and natural light', es: 'Salón con plantas y luz natural', it: 'Soggiorno con piante e luce naturale' },
     },
     {
-      id: 'details', src: assetPath('images/meraki-details.jpg'), width: 1599, height: 2400, provisional: false,
+      id: 'details', src: assetPath('images/meraki-details.webp'), width: 1600, height: 2400, provisional: false,
       alt: { el: 'Λεπτομέρεια διακόσμησης με ορχιδέα', en: 'Decorative detail with an orchid', es: 'Detalle decorativo con orquídea', it: 'Dettaglio decorativo con orchidea' },
     },
     {
-      id: 'oven', src: assetPath('images/meraki-oven.jpg'), width: 2400, height: 1600, provisional: false,
+      id: 'oven', src: assetPath('images/meraki-oven.webp'), width: 1600, height: 1067, provisional: false,
       alt: { el: 'Ο φούρνος της κουζίνας', en: 'The kitchen oven', es: 'El horno de la cocina', it: 'Il forno della cucina' },
     },
     {
-      id: 'coffee-machine', src: assetPath('images/meraki-coffee-machine.jpg'), width: 2400, height: 1600, provisional: false,
+      id: 'coffee-machine', src: assetPath('images/meraki-coffee-machine.webp'), width: 1600, height: 1067, provisional: false,
       alt: { el: 'Καφετιέρα Nespresso', en: 'Nespresso coffee machine', es: 'Cafetera Nespresso', it: 'Macchina da caffè Nespresso' },
     },
     {
-      id: 'coast-cliffs', src: assetPath('images/meraki-coast-cliffs.jpg'), width: 2043, height: 3047, provisional: false,
+      id: 'coast-cliffs', src: assetPath('images/meraki-coast-cliffs.webp'), width: 1200, height: 1790, provisional: false,
       alt: { el: 'Απόκρημνη ακτή της Κεφαλονιάς', en: 'Kefalonia’s rugged coastline', es: 'Costa escarpada de Cefalonia', it: 'Costa selvaggia di Cefalonia' },
     },
   ],
