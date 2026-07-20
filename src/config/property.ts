@@ -32,10 +32,10 @@ export const property: PropertyConfig = {
       it: 'Un rifugio tranquillo a Lixouri',
     },
     tagline: {
-      el: 'Φως, απλότητα και ο δικός σας ρυθμός στην Κεφαλονιά.',
-      en: 'Light, simplicity and your own pace in Kefalonia.',
-      es: 'Luz, sencillez y tu propio ritmo en Cefalonia.',
-      it: 'Luce, semplicità e il vostro ritmo a Cefalonia.',
+      el: 'Ένα σπίτι φτιαγμένο με αγάπη και μεράκι, στην καρδιά του Ληξουρίου.',
+      en: 'A home made with love and meraki, in the heart of Lixouri.',
+      es: 'Un hogar creado con amor y meraki, en el corazón de Lixouri.',
+      it: 'Una casa realizzata con amore e meraki, nel cuore di Lixouri.',
     },
     shortDescription: {
       el: 'Ένα προσεγμένο σπίτι κοντά στην καρδιά του Ληξουρίου, για ημέρες που ξεκινούν αργά και τελειώνουν δίπλα στο Ιόνιο.',
@@ -44,10 +44,10 @@ export const property: PropertyConfig = {
       it: 'Una casa curata vicino al cuore di Lixouri, per giornate che iniziano lentamente e finiscono accanto allo Ionio.',
     },
     longDescription: {
-      el: 'Το Meraki Home είναι μια φωτεινή κατοικία 41 τ.μ. με ένα υπνοδωμάτιο, καθιστικό και εξοπλισμένη κουζίνα. Βρίσκεται σε μικρή απόσταση από το κέντρο και το λιμάνι του Ληξουρίου· μια πρακτική, ζεστή αφετηρία για ζευγάρια, μικρές οικογένειες ή μοναχικούς ταξιδιώτες που θέλουν να γνωρίσουν την Παλική χωρίς βιασύνη.',
-      en: 'Meraki Home is a bright 41 m² residence with one bedroom, a living room and an equipped kitchen. Close to Lixouri centre and port, it is a practical, warm base for couples, small families or solo travellers who want to discover the island without rushing.',
-      es: 'Meraki Home es una vivienda luminosa de 41 m² con un dormitorio, sala de estar y cocina equipada. Cerca del centro y del puerto de Lixouri, es una base práctica y acogedora para parejas, familias pequeñas o viajeros solos que quieran descubrir la isla sin prisas.',
-      it: 'Meraki Home è una casa luminosa di 41 m² con una camera, soggiorno e cucina attrezzata. Vicina al centro e al porto di Lixouri, è una base pratica e accogliente per coppie, piccole famiglie o viaggiatori solitari che desiderano scoprire l’isola con calma.',
+      el: 'Το Meraki Home είναι μια μικρή οικογενειακή δημιουργία, ανακαινισμένη με αγάπη, προσοχή και πολύ μεράκι. Στην καρδιά του Ληξουρίου, προσφέρει άνετο υπνοδωμάτιο, ενιαίο καθιστικό με κουζίνα, καναπέ-κρεβάτι, ευρύχωρο μπάνιο και μικρό κήπο. Ένα ζεστό και προσεγμένο σπίτι για ζευγάρια, οικογένειες, φίλους ή μοναχικούς ταξιδιώτες, με όμορφες παραλίες σε κοντινή απόσταση.',
+      en: 'Meraki Home is a small family creation, renovated with love, care and a great deal of meraki. In the heart of Lixouri, it offers a comfortable bedroom, an open-plan living room with kitchen, a sofa bed, a spacious bathroom and a small garden. A warm, thoughtfully appointed home for couples, families, friends or solo travellers, with beautiful beaches just a short distance away.',
+      es: 'Meraki Home es una pequeña creación familiar, renovada con amor, cuidado y mucho meraki. En el corazón de Lixouri, ofrece un dormitorio confortable, un salón diáfano con cocina, un sofá cama, un baño espacioso y un pequeño jardín. Un hogar cálido y cuidado para parejas, familias, amigos o viajeros solos, con bonitas playas a poca distancia.',
+      it: 'Meraki Home è una piccola creazione di famiglia, ristrutturata con amore, cura e tanto meraki. Nel cuore di Lixouri offre una confortevole camera da letto, un soggiorno open space con cucina, un divano letto, un bagno spazioso e un piccolo giardino. Una casa calda e curata per coppie, famiglie, amici o viaggiatori solitari, con splendide spiagge a breve distanza.',
     },
   },
   facts: [
