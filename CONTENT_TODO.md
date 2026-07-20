@@ -70,8 +70,8 @@ Documento práctico para completar antes de publicar. Marca cada casilla y actua
 
 - [ ] Usuario/organización de GitHub.
 - [ ] Nombre definitivo del repositorio.
-- [ ] Dominio definitivo, si se usará.
-- [ ] Valor final de `VITE_PUBLIC_SITE_URL`.
+- [x] Dominio definitivo: `merakihome.gr`.
+- [x] Valor final de `VITE_PUBLIC_SITE_URL`: `https://merakihome.gr`.
 - [ ] Imagen social real.
 - [ ] Prueba final de Booking.com con fechas reales.
 - [ ] Verificación del sitio en Google Search Console después de publicar.

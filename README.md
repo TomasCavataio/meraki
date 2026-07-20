@@ -124,47 +124,32 @@ Solo se muestran canales con `value`. El formulario actual abre la ficha de Book
 - `privateAddress`: no se muestra y debe permanecer vacío salvo necesidad operativa.
 - `exactCoordinates`: opcional; no lo añadas si no quieres publicar un pin exacto.
 
-## Publicar en GitHub Pages
+## Publicación en Cloudflare
 
-1. Crea un repositorio vacío en GitHub, por ejemplo `kefalonia-apartment`.
-2. Desde la carpeta del proyecto:
+La producción se despliega como un Cloudflare Worker con Static Assets. La configuración versionada está en [`wrangler.jsonc`](wrangler.jsonc) y el workflow en [`.github/workflows/deploy.yaml`](.github/workflows/deploy.yaml).
 
-   ```bash
-   git init
-   git add .
-   git commit -m "Build Meraki Home website"
-   git branch -M main
-   git remote add origin https://github.com/USUARIO/kefalonia-apartment.git
-   git push -u origin main
-   ```
+Cada push a `main` ejecuta:
 
-3. En GitHub abre `Settings → Pages`.
-4. En `Build and deployment → Source`, selecciona **GitHub Actions**.
-5. Espera al workflow **Deploy to GitHub Pages** o ejecútalo desde `Actions` con `workflow_dispatch`.
-6. La URL aparecerá en el job `deploy` y normalmente será `https://USUARIO.github.io/kefalonia-apartment/`.
+1. `npm ci`;
+2. lint y comprobación de tipos;
+3. build de Vite con `https://merakihome.gr` como URL pública;
+4. `wrangler deploy` mediante la acción oficial de Cloudflare.
 
-El workflow obtiene el nombre real del repositorio desde GitHub, usa `/${{ github.event.repository.name }}/` como base y no contiene usuarios hardcodeados.
+El repositorio de GitHub necesita estos secretos en `Settings → Secrets and variables → Actions`:
 
-## Dominio personalizado y Cloudflare
+- `CLOUDFLARE_ACCOUNT_ID`: ID de la cuenta que contiene la zona `merakihome.gr`;
+- `CLOUDFLARE_API_TOKEN`: token limitado a esa cuenta y zona, con permiso para editar Workers.
 
-No se incluye `CNAME` ficticio. Para un dominio real:
+El dominio raíz está declarado como Custom Domain. Cuando la zona esté activa en Cloudflare, el primer deploy creará el registro DNS y el certificado TLS necesarios para `merakihome.gr`.
 
-1. configura el dominio en GitHub Pages o Cloudflare;
-2. crea `.env.production.local` (no se versiona):
+Para validar el paquete sin publicar:
 
-   ```bash
-   VITE_PUBLIC_SITE_URL=https://www.tudominio.com
-   VITE_BASE_PATH=/
-   ```
+```bash
+npm run build
+npm run deploy:dry-run
+```
 
-3. en Cloudflare Pages usa:
-
-   - build command: `npm run build`
-   - output directory: `dist`
-   - Node: `22`
-   - variables: `VITE_PUBLIC_SITE_URL=https://www.tudominio.com` y `VITE_BASE_PATH=/`
-
-El código no usa rutas React ni reescrituras de servidor, por lo que la migración no requiere cambiar componentes.
+Wrangler 4 requiere Node.js 22 o posterior.
 
 ## Contenido todavía provisional
 
@@ -174,7 +159,7 @@ El código no usa rutas React ni reescrituras de servidor, por lo que la migraci
 - políticas completas;
 - reseñas (la estructura existe, pero la sección se oculta);
 - texto legal y datos del responsable;
-- dominio y canonical hasta configurar `VITE_PUBLIC_SITE_URL`.
+- textos legales y datos completos del responsable.
 
 Consulta el checklist editable en [`CONTENT_TODO.md`](CONTENT_TODO.md).
 
@@ -184,7 +169,7 @@ Consulta el checklist editable en [`CONTENT_TODO.md`](CONTENT_TODO.md).
 - [ ] Confirmar todos los datos encontrados públicamente con el propietario.
 - [ ] Completar contacto, políticas y contenido legal.
 - [ ] Probar una búsqueda real en Booking.com.
-- [ ] Configurar `VITE_PUBLIC_SITE_URL`.
+- [x] Configurar `VITE_PUBLIC_SITE_URL` para `https://merakihome.gr`.
 - [ ] Ejecutar `npm run lint && npm run typecheck && npm run build`.
 - [ ] Revisar EL/EN/ES/IT en móvil y escritorio.
 - [ ] Comprobar foco, teclado, menú, lightbox, FAQ y errores del formulario.
