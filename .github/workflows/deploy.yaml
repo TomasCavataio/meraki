@@ -49,7 +49,11 @@ jobs:
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3
+        env:
+          BOOKING_ICAL_URL: ${{ secrets.BOOKING_ICAL_URL }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          secrets: |
+            BOOKING_ICAL_URL
           command: deploy
