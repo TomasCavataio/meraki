@@ -1,0 +1,3 @@
+# Copia este archivo como .dev.vars y sustituye el valor por la URL iCal
+# privada exportada desde la extranet de Booking.com.
+BOOKING_ICAL_URL="https://example.invalid/private-booking-calendar.ics"

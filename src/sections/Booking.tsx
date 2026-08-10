@@ -1,18 +1,11 @@
 import { ArrowUpRight, CalendarDays, ShieldCheck } from 'lucide-react'
 import { useMemo, useState, type FormEvent } from 'react'
+import { AvailabilityCalendar } from '../components/AvailabilityCalendar'
 import { SectionHeading } from '../components/SectionHeading'
 import { property } from '../config/property'
+import { useAvailability } from '../hooks/useAvailability'
 import { useLanguage } from '../i18n/LanguageContext'
-
-function formatLocalDate(date: Date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
-}
-
-function dayAfter(dateString: string) {
-  const date = new Date(`${dateString}T12:00:00`)
-  date.setDate(date.getDate() + 1)
-  return formatLocalDate(date)
-}
+import { addDays, addYears, formatLocalDate, rangeContainsBlockedNight } from '../utils/calendar'
 
 const directCopy = {
   el: { tab: 'Απευθείας κράτηση', submit: 'Αποστολή αιτήματος', people: 'Αριθμός ατόμων', children: 'Παιδιά', pet: 'Κατοικίδιο', email: 'Email', phone: 'Κινητό τηλέφωνο', comments: 'Σχόλια ή επιπλέον πληροφορίες', yes: 'Ναι', no: 'Όχι', sent: 'Το αίτημά σας εστάλη.' },
@@ -30,19 +23,42 @@ export function Booking() {
   const copy = directCopy[language]
   const primaryChannel = property.bookingChannels.find((channel) => channel.primary && channel.value) ?? property.bookingChannels.find((channel) => channel.value)
   const today = useMemo(() => formatLocalDate(new Date()), [])
+  const maxDate = useMemo(() => addYears(today, 1), [today])
+  const availability = useAvailability()
   const [tab, setTab] = useState<'direct' | 'booking'>('direct')
   const [arrival, setArrival] = useState('')
   const [departure, setDeparture] = useState('')
   const [guests, setGuests] = useState('2')
   const [errors, setErrors] = useState<{ arrival?: string; departure?: string }>({})
-  const departureMin = arrival ? dayAfter(arrival) : today
+  const departureMin = arrival ? addDays(arrival, 1) : today
+  const calendarReady = availability.status === 'ready'
 
-  const onBookingSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const updateDates = (nextArrival: string, nextDeparture: string) => {
+    setArrival(nextArrival)
+    setDeparture(nextDeparture)
+    setErrors({})
+  }
+
+  const validateDates = () => {
     const nextErrors: typeof errors = {}
     if (!arrival) nextErrors.arrival = t.booking.errors.arrivalRequired
     if (!departure) nextErrors.departure = t.booking.errors.departureRequired
     if (arrival && departure && departure <= arrival) nextErrors.departure = t.booking.errors.departureAfter
+    if (arrival && departure && availability.status === 'ready' && rangeContainsBlockedNight(arrival, departure, availability.data.blockedRanges)) {
+      nextErrors.departure = t.booking.calendar.rangeUnavailable
+    }
+    return nextErrors
+  }
+
+  const onDirectSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const nextErrors = validateDates()
+    setErrors(nextErrors)
+    if (Object.keys(nextErrors).length) event.preventDefault()
+  }
+
+  const onBookingSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const nextErrors = validateDates()
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length || !primaryChannel) return
     const url = new URL(primaryChannel.value)
@@ -57,38 +73,45 @@ export function Booking() {
     <section className="booking section" id="booking">
       <div className="booking__background" aria-hidden="true" />
       <div className="page-shell booking__layout">
-        <div>
-          <SectionHeading eyebrow={t.booking.kicker} title={t.booking.title} intro={t.booking.intro} theme="dark" />
+        <div className="booking__intro">
+          <SectionHeading eyebrow={t.booking.kicker} title={t.booking.title} theme="dark" />
           <p className="booking__secure"><ShieldCheck size={18} aria-hidden="true" />{t.booking.disclaimer}</p>
         </div>
-        <div>
-          <div className="booking-tabs" role="tablist">
-            <button className={`booking-tab${tab === 'direct' ? ' booking-tab--active' : ''}`} type="button" role="tab" aria-selected={tab === 'direct'} onClick={() => setTab('direct')}>{copy.tab}</button>
-            <button className={`booking-tab${tab === 'booking' ? ' booking-tab--active' : ''}`} type="button" role="tab" aria-selected={tab === 'booking'} onClick={() => setTab('booking')}>Booking.com</button>
+        <div className="booking__tools">
+          <div className="booking__calendar">
+            {availability.status === 'loading' ? <div className="availability-status availability-status--loading" role="status"><CalendarDays size={20} aria-hidden="true" /><span>{t.booking.loading}</span></div> : null}
+            {availability.status === 'ready' ? <AvailabilityCalendar language={language} copy={t.booking.calendar} blockedRanges={availability.data.blockedRanges} today={today} maxDate={maxDate} arrival={arrival} departure={departure} syncedAt={availability.data.syncedAt} onChange={updateDates} /> : null}
+            {availability.status === 'error' ? <div className="availability-status availability-status--error" role="alert"><CalendarDays size={20} aria-hidden="true" /><div><strong>{t.booking.loadError}</strong><span>{t.booking.fallback}</span></div></div> : null}
           </div>
-          {tab === 'direct' ? (
-            <form className="direct-form" action="https://formsubmit.co/reginalaka22@gmail.com" method="POST" data-reveal>
-              <input type="hidden" name="_subject" value="Nueva solicitud de reserva · Meraki Home" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <div className="direct-form__field"><label htmlFor="direct-guests">{copy.people}</label><select id="direct-guests" name="Número de personas" defaultValue="2" required><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
-              <div className="direct-form__field"><label htmlFor="direct-arrival">{t.booking.arrival} <CalendarDays size={16} aria-hidden="true" /></label><input id="direct-arrival" name="Check in" type="date" min={today} required /></div>
-              <div className="direct-form__field"><label htmlFor="direct-departure">{t.booking.departure} <CalendarDays size={16} aria-hidden="true" /></label><input id="direct-departure" name="Check out" type="date" min={today} required /></div>
-              <div className="direct-form__field"><label htmlFor="direct-children">{copy.children}</label><select id="direct-children" name="Hijos" defaultValue="0"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
-              <div className="direct-form__field"><label htmlFor="direct-pet">{copy.pet}</label><select id="direct-pet" name="Mascota" defaultValue="no"><option value="no">{copy.no}</option><option value="yes">{copy.yes}</option></select></div>
-              <div className="direct-form__field"><label htmlFor="direct-email">{copy.email}</label><input id="direct-email" name="Email" type="email" autoComplete="email" required /></div>
-              <div className="direct-form__field"><label htmlFor="direct-phone">{copy.phone}</label><div className="phone-field"><select name="Prefijo" aria-label="Country code" defaultValue="+30">{countryCodes.map(([country, code]) => <option key={`${country}-${code}`} value={code}>{country} {code}</option>)}</select><input id="direct-phone" name="Teléfono" type="tel" autoComplete="tel" placeholder="691 234 5678" required /></div></div>
-              <div className="direct-form__field direct-form__field--wide"><label htmlFor="direct-comments">{copy.comments}</label><textarea id="direct-comments" name="Comentarios" rows={3} /></div>
-              <button className="button button--sand direct-form__submit" type="submit">{copy.submit}<ArrowUpRight size={18} aria-hidden="true" /></button>
-            </form>
-          ) : primaryChannel ? (
-            <form className="booking-form" onSubmit={onBookingSubmit} noValidate data-reveal>
-              <div className="booking-form__field"><label htmlFor="arrival"><span>{t.booking.arrival}</span><CalendarDays size={18} aria-hidden="true" /></label><input id="arrival" name="arrival" type="date" min={today} value={arrival} aria-invalid={Boolean(errors.arrival)} onChange={(event) => { setArrival(event.target.value); setErrors((current) => ({ ...current, arrival: undefined })) }} />{errors.arrival ? <small className="field-error" role="alert">{errors.arrival}</small> : null}</div>
-              <div className="booking-form__field"><label htmlFor="departure"><span>{t.booking.departure}</span><CalendarDays size={18} aria-hidden="true" /></label><input id="departure" name="departure" type="date" min={departureMin} value={departure} aria-invalid={Boolean(errors.departure)} onChange={(event) => { setDeparture(event.target.value); setErrors((current) => ({ ...current, departure: undefined })) }} />{errors.departure ? <small className="field-error" role="alert">{errors.departure}</small> : null}</div>
-              <div className="booking-form__field"><label htmlFor="guests"><span>{t.booking.guests}</span></label><input id="guests" name="guests" type="number" inputMode="numeric" min="1" max="3" value={guests} onChange={(event) => setGuests(event.target.value)} /></div>
-              <button className="button button--sand booking-form__submit" type="submit">{t.booking.submit}<ArrowUpRight size={18} aria-hidden="true" /></button><p>{t.actions.reserveOn} {primaryChannel.label} · {t.accessibility.opensNewWindow}</p>
-            </form>
-          ) : <p className="booking__empty">{t.booking.empty}</p>}
+          <div className="booking__panel">
+            <div className="booking-tabs" role="tablist">
+              <button id="direct-tab" className={`booking-tab${tab === 'direct' ? ' booking-tab--active' : ''}`} type="button" role="tab" aria-controls="direct-panel" aria-selected={tab === 'direct'} onClick={() => setTab('direct')}>{copy.tab}</button>
+              <button id="booking-tab" className={`booking-tab${tab === 'booking' ? ' booking-tab--active' : ''}`} type="button" role="tab" aria-controls="booking-panel" aria-selected={tab === 'booking'} onClick={() => setTab('booking')}>Booking.com</button>
+            </div>
+            {tab === 'direct' ? (
+              <form id="direct-panel" className="direct-form" action="https://formsubmit.co/reginalaka22@gmail.com" method="POST" role="tabpanel" aria-labelledby="direct-tab" onSubmit={onDirectSubmit} noValidate data-reveal>
+                <input type="hidden" name="_subject" value="Nueva solicitud de reserva · Meraki Home" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <div className="direct-form__field"><label htmlFor="direct-guests">{copy.people}</label><select id="direct-guests" name="Número de personas" defaultValue="2" required><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+                <div className="direct-form__field"><label htmlFor="direct-arrival">{t.booking.arrival} <CalendarDays size={16} aria-hidden="true" /></label><input id="direct-arrival" name="Check in" type={calendarReady ? 'text' : 'date'} min={today} max={maxDate} value={arrival} readOnly={calendarReady} required aria-invalid={Boolean(errors.arrival)} onChange={(event) => { const value = event.target.value; setArrival(value); if (departure && departure <= value) setDeparture(''); setErrors((current) => ({ ...current, arrival: undefined })) }} />{errors.arrival ? <small className="field-error" role="alert">{errors.arrival}</small> : null}</div>
+                <div className="direct-form__field"><label htmlFor="direct-departure">{t.booking.departure} <CalendarDays size={16} aria-hidden="true" /></label><input id="direct-departure" name="Check out" type={calendarReady ? 'text' : 'date'} min={departureMin} max={maxDate} value={departure} readOnly={calendarReady} required aria-invalid={Boolean(errors.departure)} onChange={(event) => { setDeparture(event.target.value); setErrors((current) => ({ ...current, departure: undefined })) }} />{errors.departure ? <small className="field-error" role="alert">{errors.departure}</small> : null}</div>
+                <div className="direct-form__field"><label htmlFor="direct-children">{copy.children}</label><select id="direct-children" name="Hijos" defaultValue="0"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+                <div className="direct-form__field"><label htmlFor="direct-pet">{copy.pet}</label><select id="direct-pet" name="Mascota" defaultValue="no"><option value="no">{copy.no}</option><option value="yes">{copy.yes}</option></select></div>
+                <div className="direct-form__field"><label htmlFor="direct-email">{copy.email}</label><input id="direct-email" name="Email" type="email" autoComplete="email" required /></div>
+                <div className="direct-form__field"><label htmlFor="direct-phone">{copy.phone}</label><div className="phone-field"><select name="Prefijo" aria-label="Country code" defaultValue="+30">{countryCodes.map(([country, code]) => <option key={`${country}-${code}`} value={code}>{country} {code}</option>)}</select><input id="direct-phone" name="Teléfono" type="tel" autoComplete="tel" placeholder="691 234 5678" required /></div></div>
+                <div className="direct-form__field direct-form__field--wide"><label htmlFor="direct-comments">{copy.comments}</label><textarea id="direct-comments" name="Comentarios" rows={3} /></div>
+                <button className="button button--sand direct-form__submit" type="submit">{copy.submit}<ArrowUpRight size={18} aria-hidden="true" /></button>
+              </form>
+            ) : primaryChannel ? (
+              <form id="booking-panel" className="booking-form" role="tabpanel" aria-labelledby="booking-tab" onSubmit={onBookingSubmit} noValidate data-reveal>
+                <div className="booking-form__field"><label htmlFor="arrival"><span>{t.booking.arrival}</span><CalendarDays size={18} aria-hidden="true" /></label><input id="arrival" name="arrival" type={calendarReady ? 'text' : 'date'} min={today} max={maxDate} value={arrival} readOnly={calendarReady} aria-invalid={Boolean(errors.arrival)} onChange={(event) => { const value = event.target.value; setArrival(value); if (departure && departure <= value) setDeparture(''); setErrors((current) => ({ ...current, arrival: undefined })) }} />{errors.arrival ? <small className="field-error" role="alert">{errors.arrival}</small> : null}</div>
+                <div className="booking-form__field"><label htmlFor="departure"><span>{t.booking.departure}</span><CalendarDays size={18} aria-hidden="true" /></label><input id="departure" name="departure" type={calendarReady ? 'text' : 'date'} min={departureMin} max={maxDate} value={departure} readOnly={calendarReady} aria-invalid={Boolean(errors.departure)} onChange={(event) => { setDeparture(event.target.value); setErrors((current) => ({ ...current, departure: undefined })) }} />{errors.departure ? <small className="field-error" role="alert">{errors.departure}</small> : null}</div>
+                <div className="booking-form__field"><label htmlFor="guests"><span>{t.booking.guests}</span></label><input id="guests" name="guests" type="number" inputMode="numeric" min="1" max="3" value={guests} onChange={(event) => setGuests(event.target.value)} /></div>
+                <button className="button button--sand booking-form__submit" type="submit">{t.booking.submit}<ArrowUpRight size={18} aria-hidden="true" /></button><p>{t.actions.reserveOn} {primaryChannel.label} · {t.accessibility.opensNewWindow}</p>
+              </form>
+            ) : <p className="booking__empty">{t.booking.empty}</p>}
+          </div>
         </div>
       </div>
     </section>

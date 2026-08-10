@@ -117,6 +117,29 @@ En `bookingChannels`:
 
 Solo se muestran canales con `value`. El formulario actual abre la ficha de Booking.com con fechas y huéspedes; no confirma la reserva.
 
+### Calendario sincronizado con Booking.com
+
+La sección de reservas consulta automáticamente el calendario iCal privado de Booking.com a través de `GET /api/availability`. El enlace nunca se entrega al navegador: el Worker devuelve únicamente rangos de noches bloqueadas y los mantiene en caché durante 15 minutos.
+
+1. En la extranet de Booking.com, abre la propiedad y busca `Calendar & Pricing` / `Rates & Availability` → `Sync calendars`.
+2. Crea o abre la conexión de calendario y copia el enlace de exportación iCal.
+3. Para desarrollo local, copia `.dev.vars.example` como `.dev.vars` y sustituye el valor de `BOOKING_ICAL_URL`.
+4. Para producción, guarda el enlace una sola vez como secreto cifrado:
+
+```bash
+npx wrangler secret put BOOKING_ICAL_URL
+```
+
+Para probar localmente la web y el Worker juntos:
+
+```bash
+npm run dev:worker
+```
+
+`npm run dev` continúa arrancando Vite por separado; en ese modo la API no está disponible y la interfaz muestra de forma intencionada los selectores de fecha de respaldo.
+
+El feed iCal refleja reservas y bloqueos, pero no precios ni todas las restricciones comerciales de Booking.com. Las solicitudes directas siguen siendo consultas: cuando se acepta una, la persona responsable debe bloquear esas fechas en Booking.com para que el cambio se propague automáticamente al calendario público.
+
 ## Configurar Google Maps
 
 - `mapsUrl`: conserva el enlace oficial compartido.
