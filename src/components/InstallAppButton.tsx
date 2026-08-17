@@ -42,7 +42,7 @@ export function InstallAppButton() {
       {guideOpen ? (
         <div className="install-guide" role="dialog" aria-modal="true" aria-labelledby="install-guide-title" onMouseDown={(event) => { if (event.currentTarget === event.target) setGuideOpen(false) }}>
           <article>
-            <button ref={closeRef} type="button" onClick={() => setGuideOpen(false)} aria-label={t.actions.close}><X aria-hidden="true" /></button>
+            <button className="install-guide__close" ref={closeRef} type="button" onClick={() => setGuideOpen(false)} aria-label={t.actions.close}><X aria-hidden="true" /></button>
             <p className="eyebrow">{t.install.kicker}</p>
             <h2 id="install-guide-title">{t.install.title}</h2>
             <p>{t.install.body}</p>
