@@ -1,6 +1,7 @@
 import { ArrowUp, ArrowUpRight } from 'lucide-react'
 import { languages } from '../config/types'
 import { property } from '../config/property'
+import { InstallAppButton } from '../components/InstallAppButton'
 import { useLanguage } from '../i18n/LanguageContext'
 import type { LegalType } from '../components/LegalDialog'
 
@@ -15,6 +16,7 @@ export function Footer({ onOpenLegal }: { onOpenLegal: (type: LegalType) => void
         <div className="footer__brand">
           <a href="#top" className="brand brand--footer"><span className="brand__mark" aria-hidden="true">M</span><span className="brand__text"><strong>{property.name}</strong><small>Lixouri · Kefalonia</small></span></a>
           <p>{t.footer.tagline}</p>
+          <div className="footer__install"><InstallAppButton /></div>
         </div>
         <nav aria-label={t.footer.navigate}>
           <h2>{t.footer.navigate}</h2>

@@ -30,6 +30,16 @@ npm run dev
 
 Vite mostrará la URL local, normalmente `http://localhost:5173/`.
 
+## Instalar como app
+
+La web incluye un manifest y un service worker para instalarla desde el navegador en modo independiente. No se descarga un binario nativo: el navegador crea un acceso directo que abre Meraki Home en su propia ventana, como una app.
+
+- En Chrome, Edge o Android, abre la web y usa el icono de instalación de la barra de direcciones o el botón `Instalar app` de la cabecera cuando aparezca.
+- En iPhone o iPad, abre la web en Safari, toca `Compartir` y elige `Añadir a pantalla de inicio`.
+- En macOS o Linux, usa la opción equivalente `Instalar` / `Crear acceso directo` del navegador si no aparece el botón de la cabecera.
+
+La instalación requiere servir la web por HTTPS en producción. En local, `localhost` también es un origen válido para probarla.
+
 ## Comprobaciones y build
 
 ```bash
@@ -65,7 +75,10 @@ src/
 public/
 ├── images/           # WebP usados en producción
 ├── .nojekyll
-└── favicon.svg
+├── icons/            # Iconos PNG para la instalación
+├── favicon.svg
+├── manifest.webmanifest
+└── sw.js              # Caché de la app para el modo instalado
 source-images/        # PNG provisionales, fuera del build
 ```
 
